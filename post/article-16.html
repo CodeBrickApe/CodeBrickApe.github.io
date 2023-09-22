@@ -1,0 +1,586 @@
+<!DOCTYPE html><html lang="zh"><head><link rel="icon" href="/favicon_logo.ico"/><title>基于element封装table、分页 | 码砖猿</title><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,shrink-to-fit=no"/><meta name="description" content="基于element封装table、分页 | 码砖猿"/><meta name="theme-color" content="#ffffff"/><link rel="icon" href="/favicon_logo.ico"/><meta name="next-head-count" content="8"/><link rel="shortcut icon" href="/favicon_logo.ico"/><script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script><link rel="preload" href="/_next/static/css/911ce132c4b5394b.css" as="style"/><link rel="stylesheet" href="/_next/static/css/911ce132c4b5394b.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-1315a4788720b1e8.js" defer=""></script><script src="/_next/static/chunks/framework-0ba0ddd33199226d.js" defer=""></script><script src="/_next/static/chunks/main-a73a1e2d41ed46c0.js" defer=""></script><script src="/_next/static/chunks/pages/_app-b77ff67f95cd1e05.js" defer=""></script><script src="/_next/static/chunks/75fc9c18-c7bf0df5a4fee36b.js" defer=""></script><script src="/_next/static/chunks/996-8d936169ef317219.js" defer=""></script><script src="/_next/static/chunks/675-d57fd818f9447559.js" defer=""></script><script src="/_next/static/chunks/448-841005e54e9a77a9.js" defer=""></script><script src="/_next/static/chunks/pages/post/%5Bid%5D-18b56f1973194930.js" defer=""></script><script src="/_next/static/cuZce-tCUs9C6L25idFvY/_buildManifest.js" defer=""></script><script src="/_next/static/cuZce-tCUs9C6L25idFvY/_ssgManifest.js" defer=""></script><style data-styled="" data-styled-version="5.3.5">html{font-size:16px;}/*!sc*/
+@media only screen and (max-width:1024px){html{font-size:15px;overflow-x:hidden;}}/*!sc*/
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";-webkit-font-smoothing:antialiased;color:#1c1e21;cursor:url(data:;base64,AAACAAEAICAAAAMAAACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAgBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA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),auto;}/*!sc*/
+body{height:100%;background:#fff;}/*!sc*/
+a{color:#969696;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+p,figure{margin:0;}/*!sc*/
+h1,h2,h3,h4,h5,h6{margin-top:0;margin-bottom:1rem;}/*!sc*/
+button{outline:none;}/*!sc*/
+code{font-family:Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;}/*!sc*/
+.aplayer-list-title,.aplayer-title{color:#666 !important;}/*!sc*/
+@media only screen and (max-width:1024px){.aplayer{display:none;}.spinner-icon{display:none!important;}}/*!sc*/
+data-styled.g1[id="sc-global-gLJlMB1"]{content:"sc-global-gLJlMB1,"}/*!sc*/
+.bGhGQv{position:relative;overflow:hidden;width:100%;}/*!sc*/
+data-styled.g6[id="sc-1mu45do-0"]{content:"bGhGQv,"}/*!sc*/
+.hVyOOO{position:fixed;z-index:99999999;bottom:0rem;right:2rem;width:200px;height:126px;margin-left:-100px;background:url(images/cat.png) no-repeat 0 0;-webkit-animation:jbqKoD 1s steps(13) infinite;animation:jbqKoD 1s steps(13) infinite;-webkit-animation-play-state:paused;animation-play-state:paused;-webkit-animation-play-state:paused;}/*!sc*/
+data-styled.g7[id="sc-1fgaa7z-0"]{content:"hVyOOO,"}/*!sc*/
+.himExP{vertical-align:middle;display:inline-block;width:1rem;height:1rem;margin:0 0;margin:0 0;margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;}/*!sc*/
+.clJVaL{vertical-align:middle;display:inline-block;width:2.2rem;height:2.2rem;margin:0 0;margin:0 0;margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;}/*!sc*/
+data-styled.g8[id="sc-5mxuof-0"]{content:"himExP,clJVaL,"}/*!sc*/
+.iamDEq{-webkit-transition:all 500ms linear;transition:all 500ms linear;background-color:var(--day-night);display:inline-block;border-radius:50%;}/*!sc*/
+.iamDEq:first-child{-webkit-transform:translatey(-55px);-ms-transform:translatey(-55px);transform:translatey(-55px);}/*!sc*/
+.iamDEq:nth-child(2){-webkit-transform:translatey(0px);-ms-transform:translatey(0px);transform:translatey(0px);}/*!sc*/
+data-styled.g9[id="sc-wkso3y-0"]{content:"iamDEq,"}/*!sc*/
+.bquxby{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;position:absolute;z-index:6;width:8rem;height:2.5rem;padding:0 .3rem;overflow:hidden;}/*!sc*/
+data-styled.g10[id="sc-wkso3y-1"]{content:"bquxby,"}/*!sc*/
+.etuAXU{position:fixed;top:0.5rem;right:2.4rem;z-index:99999;}/*!sc*/
+@media only screen and (max-width:1024px){.etuAXU{display:none;}}/*!sc*/
+data-styled.g11[id="sc-wkso3y-2"]{content:"etuAXU,"}/*!sc*/
+.jckdNE{box-sizing:border-box;position:fixed;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;width:100%;padding:0 2.4rem;background:#ffffff;opacity:0.95;box-shadow:0 1px 40px -8px rgba(0,0,0,.5);z-index:9999;-webkit-transition:background 250ms linear;transition:background 250ms linear;top:-2px;}/*!sc*/
+@media only screen and (max-width:1024px){.jckdNE{display:none;}}/*!sc*/
+data-styled.g14[id="sc-yz68lp-0"]{content:"jckdNE,"}/*!sc*/
+.hNztIA{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:start;-webkit-justify-content:flex-start;-ms-flex-pack:start;justify-content:flex-start;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin-right:28.5rem;}/*!sc*/
+.hNztIA a{position:relative;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;white-space:nowrap;margin-left:1.6rem;padding:0 0.2rem;height:3.5rem;font-size:1rem;color:#666666;-webkit-transition:color 300ms ease;transition:color 300ms ease;}/*!sc*/
+.hNztIA a::after{position:absolute;content:'';bottom:0;left:0;width:0;height:0.4rem;background:#5FB878;-webkit-transition:width 300ms ease;transition:width 300ms ease;}/*!sc*/
+.hNztIA a svg{margin-right:0.5rem;width:1.1rem;height:1.1rem;fill:#666666;-webkit-transition:fill 300ms ease;transition:fill 300ms ease;}/*!sc*/
+.hNztIA a:hover{color:#5FB878;-webkit-transition:color 300ms ease;transition:color 300ms ease;}/*!sc*/
+.hNztIA a:hover::after{width:100%;}/*!sc*/
+.hNztIA a:hover svg{fill:#5FB878;stroke:#5FB878;-webkit-transition:fill 300ms ease;transition:fill 300ms ease;-webkit-animation:bkUZKo 2000ms ease infinite;animation:bkUZKo 2000ms ease infinite;}/*!sc*/
+data-styled.g15[id="sc-yz68lp-1"]{content:"hNztIA,"}/*!sc*/
+.hBnPjM{width:14.67rem;height:2.93rem;background:url('');cursor:pointer;background-repeat:no-repeat;background-position:center center;background-size:cover;}/*!sc*/
+data-styled.g16[id="sc-yz68lp-2"]{content:"hBnPjM,"}/*!sc*/
+.erwVIm{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;min-height:100vh;}/*!sc*/
+data-styled.g17[id="sc-132r4se-0"]{content:"erwVIm,"}/*!sc*/
+.eppLLS{-webkit-flex:1;-ms-flex:1;flex:1;overflow-x:hidden;}/*!sc*/
+@media only screen and (max-width:1024px){.eppLLS{margin-top:3.6rem;}}/*!sc*/
+data-styled.g18[id="sc-132r4se-1"]{content:"eppLLS,"}/*!sc*/
+.lgWwoV{margin:0 auto;text-align:center;line-height:1.6;color:#969696;}/*!sc*/
+data-styled.g73[id="sc-1mlm0xy-0"]{content:"lgWwoV,"}/*!sc*/
+.kIVCgM{margin-right:1.2rem;}/*!sc*/
+data-styled.g74[id="sc-1mlm0xy-1"]{content:"kIVCgM,"}/*!sc*/
+.jeNnIx{position:relative;margin-right:1.2rem;}/*!sc*/
+.jeNnIx:hover::before{position:absolute;content:'';top:0.6rem;left:5rem;width:0;height:0;border:0.6rem solid transparent;border-bottom-color:rgba(0,0,0,.7);}/*!sc*/
+.jeNnIx:hover::after{position:absolute;content:attr(data-last-modified-date);top:1.8rem;left:-1.3rem;padding:0.2rem;min-width:15rem;text-align:center;color:#fff;background:rgba(0,0,0,.7);border-radius:0.4rem;z-index:200;}/*!sc*/
+data-styled.g75[id="sc-1mlm0xy-2"]{content:"jeNnIx,"}/*!sc*/
+.kDYmE{position:relative;border-radius:1rem;margin:10rem auto 0;}/*!sc*/
+@media only screen and (max-width:1024px){.kDYmE{margin:1rem;}}/*!sc*/
+data-styled.g76[id="sc-fmgx06-0"]{content:"kDYmE,"}/*!sc*/
+.ceyIaR{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;width:100%;height:16rem;overflow:hidden;position:relative;border-radius:1rem;box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.1);}/*!sc*/
+data-styled.g77[id="sc-fmgx06-1"]{content:"ceyIaR,"}/*!sc*/
+.gYJjBE{margin:2rem 0;font-size:2.4rem;line-height:1.6;text-align:center;}/*!sc*/
+data-styled.g78[id="sc-fmgx06-2"]{content:"gYJjBE,"}/*!sc*/
+.ceUjEl{position:fixed;top:20rem;left:0;}/*!sc*/
+.ceUjEl .toc-link{font-size:1rem;color:#666666;}/*!sc*/
+.ceUjEl .toc-list{padding-left:1rem;line-height:1.6;list-style-type:none;}/*!sc*/
+.ceUjEl .is-active-link{color:#5FB878;}/*!sc*/
+.ceUjEl .is-active-link::before{background:#5FB878;}/*!sc*/
+@media only screen and (max-width:1024px){.ceUjEl{display:none;}}/*!sc*/
+data-styled.g79[id="sc-fmgx06-3"]{content:"ceUjEl,"}/*!sc*/
+.jBuTYL{max-width:58rem;margin:0 auto;}/*!sc*/
+.jBuTYL h2{margin:2.5rem 0 1.25rem;font-size:2rem;}/*!sc*/
+.jBuTYL h3{margin:1.875rem 0 1.25rem;font-size:1.5rem;}/*!sc*/
+.jBuTYL p{margin-bottom:1.25rem;font-size:1rem;line-height:1.65;}/*!sc*/
+.jBuTYL p code{background:#ebedf0;font-size:90%;border-radius:0.4rem;padding:0.2rem 0.4rem;}/*!sc*/
+.jBuTYL pre{font-size:90%;margin:2rem 0;border-radius:0.4rem;padding:1rem !important;line-height:1.5;background-color:rgb(40,44,52) !important;}/*!sc*/
+.jBuTYL img{display:block;margin:0 auto 1rem;}/*!sc*/
+.jBuTYL iframe{margin:2rem 0;height:35rem;}/*!sc*/
+.jBuTYL table{border-collapse:collapse;}/*!sc*/
+.jBuTYL tr:nth-of-type(2n){background-color:#fbfbfb;}/*!sc*/
+.jBuTYL td,.jBuTYL th{line-height:1.4;border:1px solid #e6e6e6;padding:0.8rem;}/*!sc*/
+.jBuTYL th{font-weight:700;}/*!sc*/
+.jBuTYL a{position:relative;color:#25c3a0;}/*!sc*/
+.jBuTYL a:hover{-webkit-text-decoration:underline #25c3a0;text-decoration:underline #25c3a0;}/*!sc*/
+.jBuTYL ul{padding-left:2rem;}/*!sc*/
+.jBuTYL li{line-height:1.6;}/*!sc*/
+data-styled.g80[id="sc-fmgx06-4"]{content:"jBuTYL,"}/*!sc*/
+.hDzKnp{background:#ffffff;padding:1rem;border-radius:1rem;}/*!sc*/
+@media only screen and (max-width:1024px){.hDzKnp{margin-bottom:2rem;}}/*!sc*/
+data-styled.g81[id="sc-fmgx06-5"]{content:"hDzKnp,"}/*!sc*/
+.jdTpJU{margin:2rem 0 4rem 0;padding:1rem;font-size:1.1rem;line-height:1.6;color:#1c1e21;background:#e6f6e6;border-left:0.3rem solid rgba(0,150,94,0.6);border-radius:0.5rem;}/*!sc*/
+data-styled.g82[id="sc-fmgx06-6"]{content:"jdTpJU,"}/*!sc*/
+.djYBhi{position:relative;display:block;margin:3.5rem 0;text-align:center;}/*!sc*/
+.djYBhi img{width:100%;height:100%;object-fit:cover;}/*!sc*/
+data-styled.g83[id="sc-fmgx06-7"]{content:"djYBhi,"}/*!sc*/
+.brUiJY{display:inline-block;padding-bottom:0.4rem;font-size:0.9rem;color:#969696;border-bottom:1px dashed #969696;}/*!sc*/
+data-styled.g84[id="sc-fmgx06-8"]{content:"brUiJY,"}/*!sc*/
+.hPkjEr{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;margin:2rem auto;}/*!sc*/
+data-styled.g85[id="sc-fmgx06-9"]{content:"hPkjEr,"}/*!sc*/
+@-webkit-keyframes bkUZKo{0%{-webkit-transform:rotate(-12deg);-ms-transform:rotate(-12deg);transform:rotate(-12deg);}8%{-webkit-transform:rotate(12deg);-ms-transform:rotate(12deg);transform:rotate(12deg);}10%{-webkit-transform:rotate(24deg);-ms-transform:rotate(24deg);transform:rotate(24deg);}18%,20%{-webkit-transform:rotate(-24deg);-ms-transform:rotate(-24deg);transform:rotate(-24deg);}28%,30%{-webkit-transform:rotate(24deg);-ms-transform:rotate(24deg);transform:rotate(24deg);}38%,40%{-webkit-transform:rotate(-24deg);-ms-transform:rotate(-24deg);transform:rotate(-24deg);}48%,50%{-webkit-transform:rotate(24deg);-ms-transform:rotate(24deg);transform:rotate(24deg);}58%,60%{-webkit-transform:rotate(-24deg);-ms-transform:rotate(-24deg);transform:rotate(-24deg);}68%{-webkit-transform:rotate(24deg);-ms-transform:rotate(24deg);transform:rotate(24deg);}100%,75%{-webkit-transform:rotate(0);-ms-transform:rotate(0);transform:rotate(0);}}/*!sc*/
+@keyframes bkUZKo{0%{-webkit-transform:rotate(-12deg);-ms-transform:rotate(-12deg);transform:rotate(-12deg);}8%{-webkit-transform:rotate(12deg);-ms-transform:rotate(12deg);transform:rotate(12deg);}10%{-webkit-transform:rotate(24deg);-ms-transform:rotate(24deg);transform:rotate(24deg);}18%,20%{-webkit-transform:rotate(-24deg);-ms-transform:rotate(-24deg);transform:rotate(-24deg);}28%,30%{-webkit-transform:rotate(24deg);-ms-transform:rotate(24deg);transform:rotate(24deg);}38%,40%{-webkit-transform:rotate(-24deg);-ms-transform:rotate(-24deg);transform:rotate(-24deg);}48%,50%{-webkit-transform:rotate(24deg);-ms-transform:rotate(24deg);transform:rotate(24deg);}58%,60%{-webkit-transform:rotate(-24deg);-ms-transform:rotate(-24deg);transform:rotate(-24deg);}68%{-webkit-transform:rotate(24deg);-ms-transform:rotate(24deg);transform:rotate(24deg);}100%,75%{-webkit-transform:rotate(0);-ms-transform:rotate(0);transform:rotate(0);}}/*!sc*/
+data-styled.g113[id="sc-keyframes-bkUZKo"]{content:"bkUZKo,"}/*!sc*/
+@-webkit-keyframes jbqKoD{0%{background-position:0 0;}100%{background-position:-2600px 0;}}/*!sc*/
+@keyframes jbqKoD{0%{background-position:0 0;}100%{background-position:-2600px 0;}}/*!sc*/
+data-styled.g114[id="sc-keyframes-jbqKoD"]{content:"jbqKoD,"}/*!sc*/
+</style></head><body><div><div id="__next"><div class="sc-1mu45do-0 bGhGQv"><section class="sc-132r4se-0 erwVIm"><nav class="sc-yz68lp-0 jckdNE"><a href="/" class="sc-yz68lp-2 hBnPjM"></a><div class="sc-yz68lp-1 hNztIA"><a href="/"><span class="sc-5mxuof-0 himExP"><svg width="1rem" height="1rem" viewBox="0 0 18 18"><use xlink:href="#home" href="#home"></use></svg></span>首页</a><a href="/post"><span class="sc-5mxuof-0 himExP"><svg width="1rem" height="1rem" viewBox="0 0 16 18"><use xlink:href="#article" href="#article"></use></svg></span>文章</a><a href="/project">项目</a><a href="/archive">归档</a><a href="/friendLink">友情链接</a><a href="/about">关于</a></div></nav><main class="sc-132r4se-1 eppLLS"><article class="sc-fmgx06-0 kDYmE"><aside class="sc-fmgx06-3 ceUjEl postMenu"></aside><article class="sc-fmgx06-4 jBuTYL"><div class="sc-fmgx06-1 ceyIaR"><span style="box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:absolute;top:0;left:0;bottom:0;right:0"><img alt="基于element封装table、分页" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" decoding="async" data-nimg="fill" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;object-fit:cover;background-size:cover;background-position:0% 0%;filter:blur(20px);background-image:url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNMT0iYCQAEHwHCrSm2UwAAAABJRU5ErkJggg==&quot;)"/><noscript><img alt="基于element封装table、分页" src="/images/articles/article-16.jpeg" decoding="async" data-nimg="fill" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;object-fit:cover" loading="lazy"/></noscript></span></div><article class="sc-fmgx06-5 hDzKnp"><h1 class="sc-fmgx06-2 gYJjBE">基于element封装table、分页</h1><div class="sc-1mlm0xy-0 lgWwoV"><time data-last-modified-date="最后一次编辑于 2021年11月05日" class="sc-1mlm0xy-2 jeNnIx">发布于 <!-- -->2021年11月05日</time><span class="sc-1mlm0xy-1 kIVCgM">100<!-- --> PV</span></div><div><blockquote class="sc-fmgx06-6 jdTpJU">在利用element-ui Table编写项目时,会存在表格展示的数据存在分页的情况,基本每个页面都要配置，很影响开发效率，也不利于后期维护，所以统一封装一下，便于开发使用。</blockquote><div class="postDetailContent"><p>在利用element-ui Table编写项目时,会存在表格展示的数据存在分页的情况,基本每个页面都要配置，很影响开发效率，也不利于后期维护，所以统一封装一下，便于开发使用。
+<figure src="/public/images/element/table.png" alt="image.png" class="sc-fmgx06-7 djYBhi"><img src="/images/element/table.png" alt="image.png"/><figcaption class="sc-fmgx06-8 brUiJY">image.png</figcaption></figure></p>
+<blockquote>
+<h2 level="2" id="How to Use:">How to Use:</h2>
+</blockquote>
+<p>在<code>src/components</code>目录中创建<code>base-table</code>，引用到自己的页面中，可以根据自己的需求自由更改。</p>
+<blockquote>
+<h2 level="2" id="base-table组件封装">base-table组件封装</h2>
+</blockquote>
+<pre><code>&lt;template&gt;
+  &lt;div class=&quot;base-table bg-white&quot;&gt;
+    &lt;!-- 表格上方操作栏 ，插槽actionBar，配置操作按钮--&gt;
+    &lt;div class=&quot;table-title flex justify-between align-center&quot;&gt;
+      &lt;div class=&quot;font-sm&quot;&gt;{{ tableTitle }}&lt;/div&gt;
+      &lt;slot name=&quot;actionBar&quot;&gt;&lt;/slot&gt;
+    &lt;/div&gt;
+    &lt;el-table
+      :span-method=&quot;arraySpanMethod&quot;
+      v-loading=&quot;loading&quot;
+      :element-loading-text=&quot;$t(&#x27;tips.loading&#x27;)&quot;
+      element-loading-spinner=&quot;el-icon-loading&quot;
+      element-loading-background=&quot;rgba(255, 255, 255, 0.8)&quot;
+      :header-row-class-name=&quot;tableHeader&quot;
+      :header-cell-style=&quot;{ background: &#x27;#E3E3E3&#x27;, color: &#x27;#333333&#x27; }&quot;
+      :row-class-name=&quot;tabRowClassName&quot;
+      @selection-change=&quot;handleCustomSelect&quot;
+      ref=&quot;table&quot;
+      row-key=&quot;id&quot;
+      :tree-props=&quot;{ children: &#x27;children&#x27;, hasChildren: &#x27;hasChildren&#x27; }&quot;
+      :data=&quot;tableData&quot;
+      :rowArr=&quot;rowSpanArr&quot;
+      style=&quot;width: 100%&quot;
+      :border=&quot;border&quot;
+    &gt;
+      &lt;el-table-column v-if=&quot;selection&quot; type=&quot;selection&quot; width=&quot;55&quot;&gt; &lt;/el-table-column&gt;
+      &lt;el-table-column v-for=&quot;item of labelData&quot; :min-width=&quot;item.minWidth&quot; :width=&quot;item.width&quot; :label=&quot;item.label&quot; :fixed=&quot;item.fixed&quot; :align=&quot;item.align || &#x27;center&#x27;&quot; :key=&quot;item.id&quot;&gt;
+        &lt;template slot-scope=&quot;scope&quot;&gt;
+          &lt;el-tooltip class=&quot;item&quot; effect=&quot;dark&quot; :disabled=&quot;!scope.row.showTooltip&quot; v-model=&quot;scope.row.showTooltip&quot; :content=&quot;scope.row[item.prop]&quot; placement=&quot;bottom-start&quot;&gt;
+            &lt;div @mouseenter=&quot;showTips($event, scope.row, scope.index, item.prop)&quot; class=&quot;cell-word&quot;&gt;{{ scope.row[item.prop] }}&lt;/div&gt;
+          &lt;/el-tooltip&gt;
+        &lt;/template&gt;
+      &lt;/el-table-column&gt;
+      &lt;slot&gt;&lt;/slot&gt;
+    &lt;/el-table&gt;
+    &lt;div class=&quot;table-bottom&quot;&gt;
+      &lt;el-pagination
+        v-if=&quot;pagi&quot;
+        @size-change=&quot;handleSelectionChange&quot;
+        @current-change=&quot;getCurrentPage&quot;
+        layout=&quot;total, sizes, prev, pager, next&quot;
+        :page-sizes=&quot;pageSizeArr&quot;
+        :page-size=&quot;pageSize&quot;
+        :current-page.sync=&quot;tableCurrentPage&quot;
+        :total=&quot;counts&quot;
+      &gt;
+      &lt;/el-pagination&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  name: &#x27;baseTable&#x27;,
+  props: {
+    loading: Boolean,
+    tableData: Array,
+    labelData: Array,
+    rowSpanArr: Array,
+    pagi: Boolean,
+    counts: Number,
+    currentPage: Number,
+    selection: Boolean,
+    isIndex: Boolean,
+    tableTitle: String,
+    border: {
+      type: Boolean,
+      default: true
+    },
+    merge: {
+      type: Boolean,
+      default: false
+    },
+    mergeCells: {
+      type: Boolean,
+      default: false
+    },
+    index: {
+      type: Number,
+      default: 6
+    }
+  },
+  data() {
+    return {
+      pageSizeArr: [5, 10, 15, 20, 25],
+      pageSize: 10,
+      tableHeader: &#x27;table-header&#x27;,
+      tableCurrentPage: this.currentPage
+    }
+  },
+  created() {},
+  methods: {
+    /**
+     * @description: 合并行或列的计算方法
+     * @param {*} row 当前行
+     * @param {*} column 当前列
+     * @param {*} rowIndex 当前行号
+     * @param {*} columnIndex 当前列号
+     */
+    arraySpanMethod({ row, column, rowIndex, columnIndex }) {
+      if (this.merge) {
+        // 只合并区域位置
+        if (columnIndex === 0) {
+          const _row = this.rowSpanArr[rowIndex]
+          return {
+            rowspan: _row, // 行
+            colspan: 1 // 列
+          }
+        }
+      }
+      if (this.mergeCells) {
+        // 只合并区域位置
+        if (columnIndex === 0) {
+          if (rowIndex % this.index === 0) {
+            return {
+              rowspan: 6,
+              colspan: 1
+            }
+          } else {
+            return {
+              rowspan: 0,
+              colspan: 0
+            }
+          }
+        }
+      }
+      // this.$emit(&#x27;arraySpanMethod&#x27;,{ row, column, rowIndex, columnIndex })
+    },
+    /**
+     * @description: 用于多选表格，切换某一行的选中状态，如果使用了第二个参数，则是设置这一行选中与否
+     * @param {*} row 当前行
+     */
+    handleCustomSelect(row) {
+     	this.$emit(&#x27;selection-change&#x27;, row)
+    },
+    /**
+     * @description: 通过方法计算返回对应class样式
+     * @param {*} row 当前行
+     * @param {*} rowIndex 当前行号
+     * @return {Boolen}
+     */
+    tabRowClassName({ row, rowIndex }) {
+      let index = rowIndex + 1
+      if (index % 2 === 0) {
+        return &#x27;warning-row&#x27;
+      }
+    },
+    /**
+     * @description: currentPage 改变时会触发
+     * @param {*} index 跳转页码
+     * @return {*}
+     */
+    getCurrentPage(index) {
+      this.$emit(&#x27;page-change&#x27;, index)
+    },
+    /**
+     * @description: pageSize 改变时会触发
+     * @param {*} val  每页条数
+     * @return {*}
+     */
+    handleSelectionChange(val) {
+      this.$emit(&#x27;size-change&#x27;, val)
+    },
+    showTips(obj, row, index, prop) {
+      /* obj为鼠标移入时的事件对象 */
+      /* currentWidth 为文本在页面中所占的宽度，创建标签，加入到页面，获取currentWidth ,最后在移除 */
+      let TemporaryTag = document.createElement(&#x27;span&#x27;)
+      TemporaryTag.innerText = row[prop]
+      TemporaryTag.className = &#x27;getTextWidth&#x27;
+      document.querySelector(&#x27;body&#x27;).appendChild(TemporaryTag)
+      let currentWidth = document.querySelector(&#x27;.getTextWidth&#x27;).offsetWidth
+      document.querySelector(&#x27;.getTextWidth&#x27;).remove()
+
+      /* cellWidth为表格容器的宽度 */
+      const cellWidth = obj.target.offsetWidth
+
+      /* 当文本宽度小于||等于容器宽度两倍时，代表文本显示未超过两行 */
+      currentWidth &lt;= 2 * cellWidth ? (row.showTooltip = false) : (row.showTooltip = true)
+      this.$set(this.tableData, index, row)
+      console.log(currentWidth &lt;= 2 * cellWidth ? (row.showTooltip = false) : (row.showTooltip = true))
+    }
+  },
+  mounted() {},
+  watch: {
+    currentPage() {
+      this.tableCurrentPage = this.currentPage
+    }
+  }
+}
+&lt;/script&gt;
+
+&lt;style lang=&quot;scss&quot; scoped&gt;
+.base-table {
+  border-radius: 4px;
+  padding: 16px;
+  margin-top: 8px;
+
+  .table-title {
+    margin-bottom: 16px;
+    color: #4c4c4c;
+  }
+  .table-bottom {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  /deep/ tr .cell {
+    text-overflow: -o-ellipsis-lastline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+  }
+  .cell-word {
+    cursor: pointer;
+  }
+  /deep/ .warning-row {
+    background-color: #f3f3f3;
+  }
+  /deep/.el-table {
+    .cell {
+      .el-button {
+        margin-bottom: 4px;
+        margin-left: 4px;
+      }
+    }
+  }
+  .spans {
+    margin: 0 6px;
+    display: inline-block;
+    cursor: pointer;
+  }
+}
+&lt;/style&gt;
+</code></pre>
+<blockquote>
+<h2 level="2" id="传参说明">传参说明</h2>
+</blockquote>
+<p>Table Attributes</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="sc-fmgx06-9 hPkjEr"><table><thead><tr><th>参数</th><th>说明</th><th>类型</th><th>默认值</th></tr></thead><tbody><tr><td>tableTitle</td><td>表格上方标题</td><td>String</td><td>-</td></tr><tr><td>tableData</td><td>显示的数据</td><td>Array</td><td>-</td></tr><tr><td>labelData</td><td>table-column相关配置信息,详见<a href="#column">Table-column Attributes</a></td><td>Array</td><td>-</td></tr><tr><td>loading</td><td>区域加载效果，在表格等容器中加载数据时显示。</td><td>Boolean</td><td>-</td></tr><tr><td>selection</td><td>是否在表格第一列显示多选框</td><td>Boolean</td><td>-</td></tr><tr><td>border</td><td>是否显示表格边框</td><td>Boolean</td><td>true</td></tr><tr><td>rowSpanArr</td><td>合并行或列的数组 [rowIndex/columnIndex]</td><td>Array</td><td>-</td></tr><tr><td>merge</td><td>合并行,配合rowSpanArr使用</td><td>Boolean</td><td>false</td></tr><tr><td>mergeCells</td><td>合并列,配合rowSpanArr使用</td><td>Boolean</td><td>false</td></tr><tr><td>pagi</td><td>是否显示表格下面的分页</td><td>Boolean</td><td>-</td></tr><tr><td>counts</td><td>总条目数</td><td>Number</td><td>-</td></tr><tr><td>currentPage</td><td>当前页数，支持 .sync 修饰符</td><td>Number</td><td>-</td></tr></tbody></table></p>
+<p>Table Events</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="sc-fmgx06-9 hPkjEr"><table><thead><tr><th>事件名</th><th>说明</th><th>参数</th></tr></thead><tbody><tr><td>selection-change</td><td>table第一列，多选项发生变化时会触发该事件</td><td>selection</td></tr><tr><td>page-change</td><td>currentPage 改变时会触发</td><td>当前页</td></tr><tr><td>size-chang</td><td>pageSize 改变时会触发</td><td>每页条数</td></tr></tbody></table></p>
+<p><a name="column" href="">Table-column Attributes</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="sc-fmgx06-9 hPkjEr"><table><thead><tr><th>参数</th><th>说明</th><th>类型</th><th>默认值</th></tr></thead><tbody><tr><td>label</td><td>显示的标题</td><td>String</td><td>-</td></tr><tr><td>prop</td><td>对应列内容的字段名</td><td>String</td><td>-</td></tr><tr><td>width</td><td>对应列的宽度</td><td>String</td><td>-</td></tr><tr><td>fixed</td><td>列是否固定在左侧或者右侧，true 表示固定在左侧</td><td>string, boolean</td><td>-</td></tr><tr><td>align</td><td>对齐方式</td><td>String</td><td>center</td></tr></tbody></table></p>
+<blockquote>
+<h2 level="2" id="使用模板">使用模板</h2>
+</blockquote>
+<p>需要使用的页面</p>
+<pre><code> // template
+ &lt;base-table
+   tableTitle=&quot;角色列表&quot;
+   :label-data=&quot;tableData.cloumn&quot;
+   :table-data=&quot;tableData.data&quot;
+   :counts=&quot;count&quot;
+   pagi
+   selection
+   :loading=&quot;loading&quot;
+   @size-change=&quot;getSelectionChange&quot;
+   :current-page=&quot;searchParams.page&quot;
+   @page-change=&quot;getCurrentPage&quot;
+   @selection-change=&quot;handleselectione&quot;
+ &gt;
+   &lt;!-- 表格头部右侧操作栏 --&gt;
+   &lt;template slot=&quot;actionBar&quot;&gt;
+     &lt;el-button type=&quot;primary&quot;&gt;新增角色&lt;/el-button&gt;
+   &lt;/template&gt;
+   &lt;!-- 自定义操作列 --&gt;
+   &lt;el-table-column align=&quot;center&quot; :label=&quot;$t(&#x27;account.actions&#x27;)&quot;&gt;
+     &lt;template slot-scope=&quot;scope&quot;&gt;
+       &lt;el-button type=&quot;text&quot; @click=&quot;handleEdit(scope.row)&quot;&gt;编辑&lt;/el-button&gt;
+       &lt;el-button type=&quot;text&quot; @click=&quot;handleDelete(scope.row)&quot;&gt;删除&lt;/el-button&gt;
+     &lt;/template&gt;
+   &lt;/el-table-column&gt;
+ &lt;/base-table&gt;
+ 
+</code></pre>
+<pre><code>import BaseTable from &#x27;@/components/common/baseTable.vue&#x27;
+// data
+export default {
+  data() {
+    return {
+      loading: true,
+      tableData: {
+        // 表格数据
+        data: [],
+        cloumn: [
+          { label: &#x27;角色名称&#x27;), prop: &#x27;Name&#x27;, fixed: true, align: &#x27;left&#x27;, minWidth: &#x27;100px&#x27; },
+          { label: &#x27;角色明细&#x27;, prop: &#x27;Description&#x27;, width: &#x27;130px&#x27; }
+        ]
+      },
+      searchParams: { // 请求参数
+        page: 1,
+        limit: 10
+      },
+      count: 234 // 列表总数
+    }
+  },
+  components: { BaseTable },
+}
+</code></pre>
+<pre><code>//methods
+    // 请求数据
+    fetch(){},
+
+    // 下拉框选择每页显示条数
+    getSelectionChange(val) {
+      this.searchParams.limit = val
+      this.searchParams.page = 1
+      this.fetch()
+    },
+
+    // 切换分页
+    getCurrentPage(val) {
+      this.searchParams.page = val
+      this.fetch()
+    },
+
+    // 点击选中当前行
+    handleselectione(value) {
+      console.log(value)
+    },
+</code></pre></div></div></article></article></article></main></section></div><div class="sc-wkso3y-2 etuAXU SwitchTheme"><div id="SwitchThemeWrapper" class="light switch"><label for="switch"><input type="checkbox" id="switch"/><div class="toggle-wrapper"><div class="sc-wkso3y-1 bquxby"><span class="sc-wkso3y-0 iamDEq"><span class="sc-5mxuof-0 clJVaL"><svg width="2.2rem" height="2.2rem" viewBox="0 0 28 28"><use xlink:href="#night" href="#night"></use></svg></span></span><span class="sc-wkso3y-0 iamDEq"><span class="sc-5mxuof-0 clJVaL"><svg width="2.2rem" height="2.2rem" viewBox="0 0 28 28"><use xlink:href="#day" href="#day"></use></svg></span></span></div><div class="tree-left"><div class="tree"></div><div class="trunk"><div class="branch"></div><div class="branch"></div></div></div><div class="tree-right"><div class="tree-back"><div class="trunk"></div></div><div class="tree-front"><div class="trunk"></div></div></div><div class="moon"></div><div class="stars"><div class="star big-star"><div class="vertical"></div><div class="horizontal"></div></div><div class="star small-star"><div class="vertical"></div><div class="horizontal"></div></div></div><div class="sun"></div><div class="hills"><div class="hill-left"></div><div class="hill-right"></div></div></div></label></div></div><div class="sc-1fgaa7z-0 hVyOOO"></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"postData":{"id":"article-16","markdown":"在利用element-ui Table编写项目时,会存在表格展示的数据存在分页的情况,基本每个页面都要配置，很影响开发效率，也不利于后期维护，所以统一封装一下，便于开发使用。\n![image.png](/public/images/element/table.png)\n\u003e ## How to Use: \n\n在`src/components`目录中创建`base-table`，引用到自己的页面中，可以根据自己的需求自由更改。\n\u003e ## base-table组件封装\n```\n\u003ctemplate\u003e\n  \u003cdiv class=\"base-table bg-white\"\u003e\n    \u003c!-- 表格上方操作栏 ，插槽actionBar，配置操作按钮--\u003e\n    \u003cdiv class=\"table-title flex justify-between align-center\"\u003e\n      \u003cdiv class=\"font-sm\"\u003e{{ tableTitle }}\u003c/div\u003e\n      \u003cslot name=\"actionBar\"\u003e\u003c/slot\u003e\n    \u003c/div\u003e\n    \u003cel-table\n      :span-method=\"arraySpanMethod\"\n      v-loading=\"loading\"\n      :element-loading-text=\"$t('tips.loading')\"\n      element-loading-spinner=\"el-icon-loading\"\n      element-loading-background=\"rgba(255, 255, 255, 0.8)\"\n      :header-row-class-name=\"tableHeader\"\n      :header-cell-style=\"{ background: '#E3E3E3', color: '#333333' }\"\n      :row-class-name=\"tabRowClassName\"\n      @selection-change=\"handleCustomSelect\"\n      ref=\"table\"\n      row-key=\"id\"\n      :tree-props=\"{ children: 'children', hasChildren: 'hasChildren' }\"\n      :data=\"tableData\"\n      :rowArr=\"rowSpanArr\"\n      style=\"width: 100%\"\n      :border=\"border\"\n    \u003e\n      \u003cel-table-column v-if=\"selection\" type=\"selection\" width=\"55\"\u003e \u003c/el-table-column\u003e\n      \u003cel-table-column v-for=\"item of labelData\" :min-width=\"item.minWidth\" :width=\"item.width\" :label=\"item.label\" :fixed=\"item.fixed\" :align=\"item.align || 'center'\" :key=\"item.id\"\u003e\n        \u003ctemplate slot-scope=\"scope\"\u003e\n          \u003cel-tooltip class=\"item\" effect=\"dark\" :disabled=\"!scope.row.showTooltip\" v-model=\"scope.row.showTooltip\" :content=\"scope.row[item.prop]\" placement=\"bottom-start\"\u003e\n            \u003cdiv @mouseenter=\"showTips($event, scope.row, scope.index, item.prop)\" class=\"cell-word\"\u003e{{ scope.row[item.prop] }}\u003c/div\u003e\n          \u003c/el-tooltip\u003e\n        \u003c/template\u003e\n      \u003c/el-table-column\u003e\n      \u003cslot\u003e\u003c/slot\u003e\n    \u003c/el-table\u003e\n    \u003cdiv class=\"table-bottom\"\u003e\n      \u003cel-pagination\n        v-if=\"pagi\"\n        @size-change=\"handleSelectionChange\"\n        @current-change=\"getCurrentPage\"\n        layout=\"total, sizes, prev, pager, next\"\n        :page-sizes=\"pageSizeArr\"\n        :page-size=\"pageSize\"\n        :current-page.sync=\"tableCurrentPage\"\n        :total=\"counts\"\n      \u003e\n      \u003c/el-pagination\u003e\n    \u003c/div\u003e\n  \u003c/div\u003e\n\u003c/template\u003e\n\n\u003cscript\u003e\nexport default {\n  name: 'baseTable',\n  props: {\n    loading: Boolean,\n    tableData: Array,\n    labelData: Array,\n    rowSpanArr: Array,\n    pagi: Boolean,\n    counts: Number,\n    currentPage: Number,\n    selection: Boolean,\n    isIndex: Boolean,\n    tableTitle: String,\n    border: {\n      type: Boolean,\n      default: true\n    },\n    merge: {\n      type: Boolean,\n      default: false\n    },\n    mergeCells: {\n      type: Boolean,\n      default: false\n    },\n    index: {\n      type: Number,\n      default: 6\n    }\n  },\n  data() {\n    return {\n      pageSizeArr: [5, 10, 15, 20, 25],\n      pageSize: 10,\n      tableHeader: 'table-header',\n      tableCurrentPage: this.currentPage\n    }\n  },\n  created() {},\n  methods: {\n    /**\n     * @description: 合并行或列的计算方法\n     * @param {*} row 当前行\n     * @param {*} column 当前列\n     * @param {*} rowIndex 当前行号\n     * @param {*} columnIndex 当前列号\n     */\n    arraySpanMethod({ row, column, rowIndex, columnIndex }) {\n      if (this.merge) {\n        // 只合并区域位置\n        if (columnIndex === 0) {\n          const _row = this.rowSpanArr[rowIndex]\n          return {\n            rowspan: _row, // 行\n            colspan: 1 // 列\n          }\n        }\n      }\n      if (this.mergeCells) {\n        // 只合并区域位置\n        if (columnIndex === 0) {\n          if (rowIndex % this.index === 0) {\n            return {\n              rowspan: 6,\n              colspan: 1\n            }\n          } else {\n            return {\n              rowspan: 0,\n              colspan: 0\n            }\n          }\n        }\n      }\n      // this.$emit('arraySpanMethod',{ row, column, rowIndex, columnIndex })\n    },\n    /**\n     * @description: 用于多选表格，切换某一行的选中状态，如果使用了第二个参数，则是设置这一行选中与否\n     * @param {*} row 当前行\n     */\n    handleCustomSelect(row) {\n     \tthis.$emit('selection-change', row)\n    },\n    /**\n     * @description: 通过方法计算返回对应class样式\n     * @param {*} row 当前行\n     * @param {*} rowIndex 当前行号\n     * @return {Boolen}\n     */\n    tabRowClassName({ row, rowIndex }) {\n      let index = rowIndex + 1\n      if (index % 2 === 0) {\n        return 'warning-row'\n      }\n    },\n    /**\n     * @description: currentPage 改变时会触发\n     * @param {*} index 跳转页码\n     * @return {*}\n     */\n    getCurrentPage(index) {\n      this.$emit('page-change', index)\n    },\n    /**\n     * @description: pageSize 改变时会触发\n     * @param {*} val  每页条数\n     * @return {*}\n     */\n    handleSelectionChange(val) {\n      this.$emit('size-change', val)\n    },\n    showTips(obj, row, index, prop) {\n      /* obj为鼠标移入时的事件对象 */\n      /* currentWidth 为文本在页面中所占的宽度，创建标签，加入到页面，获取currentWidth ,最后在移除 */\n      let TemporaryTag = document.createElement('span')\n      TemporaryTag.innerText = row[prop]\n      TemporaryTag.className = 'getTextWidth'\n      document.querySelector('body').appendChild(TemporaryTag)\n      let currentWidth = document.querySelector('.getTextWidth').offsetWidth\n      document.querySelector('.getTextWidth').remove()\n\n      /* cellWidth为表格容器的宽度 */\n      const cellWidth = obj.target.offsetWidth\n\n      /* 当文本宽度小于||等于容器宽度两倍时，代表文本显示未超过两行 */\n      currentWidth \u003c= 2 * cellWidth ? (row.showTooltip = false) : (row.showTooltip = true)\n      this.$set(this.tableData, index, row)\n      console.log(currentWidth \u003c= 2 * cellWidth ? (row.showTooltip = false) : (row.showTooltip = true))\n    }\n  },\n  mounted() {},\n  watch: {\n    currentPage() {\n      this.tableCurrentPage = this.currentPage\n    }\n  }\n}\n\u003c/script\u003e\n\n\u003cstyle lang=\"scss\" scoped\u003e\n.base-table {\n  border-radius: 4px;\n  padding: 16px;\n  margin-top: 8px;\n\n  .table-title {\n    margin-bottom: 16px;\n    color: #4c4c4c;\n  }\n  .table-bottom {\n    margin-top: 20px;\n    display: flex;\n    justify-content: center;\n  }\n  /deep/ tr .cell {\n    text-overflow: -o-ellipsis-lastline;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    display: -webkit-box;\n    -webkit-line-clamp: 2;\n    line-clamp: 2;\n    -webkit-box-orient: vertical;\n    word-break: break-all;\n  }\n  .cell-word {\n    cursor: pointer;\n  }\n  /deep/ .warning-row {\n    background-color: #f3f3f3;\n  }\n  /deep/.el-table {\n    .cell {\n      .el-button {\n        margin-bottom: 4px;\n        margin-left: 4px;\n      }\n    }\n  }\n  .spans {\n    margin: 0 6px;\n    display: inline-block;\n    cursor: pointer;\n  }\n}\n\u003c/style\u003e\n```\n\u003e ## 传参说明\n\nTable Attributes\n\n\n|参数|说明|类型|默认值|\n|-|-|-|-|\n|tableTitle|表格上方标题|String|-|\n|tableData|显示的数据|Array|-|\n|labelData|table-column相关配置信息,详见[Table-column Attributes](#column)|Array|-|\n|loading|区域加载效果，在表格等容器中加载数据时显示。|Boolean|-|\n|selection|是否在表格第一列显示多选框|Boolean|-|\n|border|是否显示表格边框|Boolean|true|\n|rowSpanArr|合并行或列的数组 [rowIndex/columnIndex]|Array|-|\n|merge|合并行,配合rowSpanArr使用|Boolean|false|\n|mergeCells|合并列,配合rowSpanArr使用|Boolean|false|\n|pagi|是否显示表格下面的分页|Boolean|-|\n|counts|总条目数|Number|-|\n|currentPage|当前页数，支持 .sync 修饰符|Number|-|\n\nTable Events\n\n|事件名|说明|参数|\n|-|-|-|\n|selection-change|table第一列，多选项发生变化时会触发该事件|selection|\n|page-change|currentPage 改变时会触发|当前页|\n|size-chang|pageSize 改变时会触发|每页条数|\n\n\u003ca name='column'\u003eTable-column Attributes\u003c/a\u003e\n|参数|说明|类型|默认值|\n|-|-|-|-|\n|label|显示的标题|String|-|\n|prop|对应列内容的字段名|String|-|\n|width|对应列的宽度|String|-|\n|fixed|列是否固定在左侧或者右侧，true 表示固定在左侧|string, boolean|-|\n|align|对齐方式|String|center|\n\n\u003e ## 使用模板\n\n需要使用的页面\n```\n // template\n \u003cbase-table\n   tableTitle=\"角色列表\"\n   :label-data=\"tableData.cloumn\"\n   :table-data=\"tableData.data\"\n   :counts=\"count\"\n   pagi\n   selection\n   :loading=\"loading\"\n   @size-change=\"getSelectionChange\"\n   :current-page=\"searchParams.page\"\n   @page-change=\"getCurrentPage\"\n   @selection-change=\"handleselectione\"\n \u003e\n   \u003c!-- 表格头部右侧操作栏 --\u003e\n   \u003ctemplate slot=\"actionBar\"\u003e\n     \u003cel-button type=\"primary\"\u003e新增角色\u003c/el-button\u003e\n   \u003c/template\u003e\n   \u003c!-- 自定义操作列 --\u003e\n   \u003cel-table-column align=\"center\" :label=\"$t('account.actions')\"\u003e\n     \u003ctemplate slot-scope=\"scope\"\u003e\n       \u003cel-button type=\"text\" @click=\"handleEdit(scope.row)\"\u003e编辑\u003c/el-button\u003e\n       \u003cel-button type=\"text\" @click=\"handleDelete(scope.row)\"\u003e删除\u003c/el-button\u003e\n     \u003c/template\u003e\n   \u003c/el-table-column\u003e\n \u003c/base-table\u003e\n \n```\n\n```\nimport BaseTable from '@/components/common/baseTable.vue'\n// data\nexport default {\n  data() {\n    return {\n      loading: true,\n      tableData: {\n        // 表格数据\n        data: [],\n        cloumn: [\n          { label: '角色名称'), prop: 'Name', fixed: true, align: 'left', minWidth: '100px' },\n          { label: '角色明细', prop: 'Description', width: '130px' }\n        ]\n      },\n      searchParams: { // 请求参数\n        page: 1,\n        limit: 10\n      },\n      count: 234 // 列表总数\n    }\n  },\n  components: { BaseTable },\n}\n```\n\n```\n//methods\n    // 请求数据\n    fetch(){},\n\n    // 下拉框选择每页显示条数\n    getSelectionChange(val) {\n      this.searchParams.limit = val\n      this.searchParams.page = 1\n      this.fetch()\n    },\n\n    // 切换分页\n    getCurrentPage(val) {\n      this.searchParams.page = val\n      this.fetch()\n    },\n\n    // 点击选中当前行\n    handleselectione(value) {\n      console.log(value)\n    },\n```\n","title":"基于element封装table、分页","summary":"在利用element-ui Table编写项目时,会存在表格展示的数据存在分页的情况,基本每个页面都要配置，很影响开发效率，也不利于后期维护，所以统一封装一下，便于开发使用。","tags":["Element-ui","Vue","javascript"],"categories":null,"date":"Fri, 05 Nov 2021 14:06:13 GMT","updated":"Sun, 09 Jul 2023 13:06:37 GMT","coverImg":null,"dateYMD":"2021-11-05","wordcount":"本文字数：820 字    阅读完需：约 5 分钟"}},"__N_SSG":true},"page":"/post/[id]","query":{"id":"article-16"},"buildId":"cuZce-tCUs9C6L25idFvY","isFallback":false,"gsp":true,"scriptLoader":[]}</script></div></body></html>

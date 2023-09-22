@@ -1,0 +1,305 @@
+<!DOCTYPE html><html lang="zh"><head><link rel="icon" href="/favicon_logo.ico"/><title>浏览器进度条-Nprogress | 码砖猿</title><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,shrink-to-fit=no"/><meta name="description" content="浏览器进度条-Nprogress | 码砖猿"/><meta name="theme-color" content="#ffffff"/><link rel="icon" href="/favicon_logo.ico"/><meta name="next-head-count" content="8"/><link rel="shortcut icon" href="/favicon_logo.ico"/><script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script><link rel="preload" href="/_next/static/css/911ce132c4b5394b.css" as="style"/><link rel="stylesheet" href="/_next/static/css/911ce132c4b5394b.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-1315a4788720b1e8.js" defer=""></script><script src="/_next/static/chunks/framework-0ba0ddd33199226d.js" defer=""></script><script src="/_next/static/chunks/main-a73a1e2d41ed46c0.js" defer=""></script><script src="/_next/static/chunks/pages/_app-b77ff67f95cd1e05.js" defer=""></script><script src="/_next/static/chunks/75fc9c18-c7bf0df5a4fee36b.js" defer=""></script><script src="/_next/static/chunks/996-8d936169ef317219.js" defer=""></script><script src="/_next/static/chunks/675-d57fd818f9447559.js" defer=""></script><script src="/_next/static/chunks/448-841005e54e9a77a9.js" defer=""></script><script src="/_next/static/chunks/pages/post/%5Bid%5D-18b56f1973194930.js" defer=""></script><script src="/_next/static/cuZce-tCUs9C6L25idFvY/_buildManifest.js" defer=""></script><script src="/_next/static/cuZce-tCUs9C6L25idFvY/_ssgManifest.js" defer=""></script><style data-styled="" data-styled-version="5.3.5">html{font-size:16px;}/*!sc*/
+@media only screen and (max-width:1024px){html{font-size:15px;overflow-x:hidden;}}/*!sc*/
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";-webkit-font-smoothing:antialiased;color:#1c1e21;cursor:url(data:;base64,AAACAAEAICAAAAMAAACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAgBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA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),auto;}/*!sc*/
+body{height:100%;background:#fff;}/*!sc*/
+a{color:#969696;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+p,figure{margin:0;}/*!sc*/
+h1,h2,h3,h4,h5,h6{margin-top:0;margin-bottom:1rem;}/*!sc*/
+button{outline:none;}/*!sc*/
+code{font-family:Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;}/*!sc*/
+.aplayer-list-title,.aplayer-title{color:#666 !important;}/*!sc*/
+@media only screen and (max-width:1024px){.aplayer{display:none;}.spinner-icon{display:none!important;}}/*!sc*/
+data-styled.g1[id="sc-global-gLJlMB1"]{content:"sc-global-gLJlMB1,"}/*!sc*/
+.bGhGQv{position:relative;overflow:hidden;width:100%;}/*!sc*/
+data-styled.g6[id="sc-1mu45do-0"]{content:"bGhGQv,"}/*!sc*/
+.hVyOOO{position:fixed;z-index:99999999;bottom:0rem;right:2rem;width:200px;height:126px;margin-left:-100px;background:url(images/cat.png) no-repeat 0 0;-webkit-animation:jbqKoD 1s steps(13) infinite;animation:jbqKoD 1s steps(13) infinite;-webkit-animation-play-state:paused;animation-play-state:paused;-webkit-animation-play-state:paused;}/*!sc*/
+data-styled.g7[id="sc-1fgaa7z-0"]{content:"hVyOOO,"}/*!sc*/
+.himExP{vertical-align:middle;display:inline-block;width:1rem;height:1rem;margin:0 0;margin:0 0;margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;}/*!sc*/
+.clJVaL{vertical-align:middle;display:inline-block;width:2.2rem;height:2.2rem;margin:0 0;margin:0 0;margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;}/*!sc*/
+data-styled.g8[id="sc-5mxuof-0"]{content:"himExP,clJVaL,"}/*!sc*/
+.iamDEq{-webkit-transition:all 500ms linear;transition:all 500ms linear;background-color:var(--day-night);display:inline-block;border-radius:50%;}/*!sc*/
+.iamDEq:first-child{-webkit-transform:translatey(-55px);-ms-transform:translatey(-55px);transform:translatey(-55px);}/*!sc*/
+.iamDEq:nth-child(2){-webkit-transform:translatey(0px);-ms-transform:translatey(0px);transform:translatey(0px);}/*!sc*/
+data-styled.g9[id="sc-wkso3y-0"]{content:"iamDEq,"}/*!sc*/
+.bquxby{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;position:absolute;z-index:6;width:8rem;height:2.5rem;padding:0 .3rem;overflow:hidden;}/*!sc*/
+data-styled.g10[id="sc-wkso3y-1"]{content:"bquxby,"}/*!sc*/
+.etuAXU{position:fixed;top:0.5rem;right:2.4rem;z-index:99999;}/*!sc*/
+@media only screen and (max-width:1024px){.etuAXU{display:none;}}/*!sc*/
+data-styled.g11[id="sc-wkso3y-2"]{content:"etuAXU,"}/*!sc*/
+.jckdNE{box-sizing:border-box;position:fixed;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;width:100%;padding:0 2.4rem;background:#ffffff;opacity:0.95;box-shadow:0 1px 40px -8px rgba(0,0,0,.5);z-index:9999;-webkit-transition:background 250ms linear;transition:background 250ms linear;top:-2px;}/*!sc*/
+@media only screen and (max-width:1024px){.jckdNE{display:none;}}/*!sc*/
+data-styled.g14[id="sc-yz68lp-0"]{content:"jckdNE,"}/*!sc*/
+.hNztIA{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:start;-webkit-justify-content:flex-start;-ms-flex-pack:start;justify-content:flex-start;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin-right:28.5rem;}/*!sc*/
+.hNztIA a{position:relative;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;white-space:nowrap;margin-left:1.6rem;padding:0 0.2rem;height:3.5rem;font-size:1rem;color:#666666;-webkit-transition:color 300ms ease;transition:color 300ms ease;}/*!sc*/
+.hNztIA a::after{position:absolute;content:'';bottom:0;left:0;width:0;height:0.4rem;background:#5FB878;-webkit-transition:width 300ms ease;transition:width 300ms ease;}/*!sc*/
+.hNztIA a svg{margin-right:0.5rem;width:1.1rem;height:1.1rem;fill:#666666;-webkit-transition:fill 300ms ease;transition:fill 300ms ease;}/*!sc*/
+.hNztIA a:hover{color:#5FB878;-webkit-transition:color 300ms ease;transition:color 300ms ease;}/*!sc*/
+.hNztIA a:hover::after{width:100%;}/*!sc*/
+.hNztIA a:hover svg{fill:#5FB878;stroke:#5FB878;-webkit-transition:fill 300ms ease;transition:fill 300ms ease;-webkit-animation:bkUZKo 2000ms ease infinite;animation:bkUZKo 2000ms ease infinite;}/*!sc*/
+data-styled.g15[id="sc-yz68lp-1"]{content:"hNztIA,"}/*!sc*/
+.hBnPjM{width:14.67rem;height:2.93rem;background:url('');cursor:pointer;background-repeat:no-repeat;background-position:center center;background-size:cover;}/*!sc*/
+data-styled.g16[id="sc-yz68lp-2"]{content:"hBnPjM,"}/*!sc*/
+.erwVIm{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;min-height:100vh;}/*!sc*/
+data-styled.g17[id="sc-132r4se-0"]{content:"erwVIm,"}/*!sc*/
+.eppLLS{-webkit-flex:1;-ms-flex:1;flex:1;overflow-x:hidden;}/*!sc*/
+@media only screen and (max-width:1024px){.eppLLS{margin-top:3.6rem;}}/*!sc*/
+data-styled.g18[id="sc-132r4se-1"]{content:"eppLLS,"}/*!sc*/
+.lgWwoV{margin:0 auto;text-align:center;line-height:1.6;color:#969696;}/*!sc*/
+data-styled.g73[id="sc-1mlm0xy-0"]{content:"lgWwoV,"}/*!sc*/
+.kIVCgM{margin-right:1.2rem;}/*!sc*/
+data-styled.g74[id="sc-1mlm0xy-1"]{content:"kIVCgM,"}/*!sc*/
+.jeNnIx{position:relative;margin-right:1.2rem;}/*!sc*/
+.jeNnIx:hover::before{position:absolute;content:'';top:0.6rem;left:5rem;width:0;height:0;border:0.6rem solid transparent;border-bottom-color:rgba(0,0,0,.7);}/*!sc*/
+.jeNnIx:hover::after{position:absolute;content:attr(data-last-modified-date);top:1.8rem;left:-1.3rem;padding:0.2rem;min-width:15rem;text-align:center;color:#fff;background:rgba(0,0,0,.7);border-radius:0.4rem;z-index:200;}/*!sc*/
+data-styled.g75[id="sc-1mlm0xy-2"]{content:"jeNnIx,"}/*!sc*/
+.kDYmE{position:relative;border-radius:1rem;margin:10rem auto 0;}/*!sc*/
+@media only screen and (max-width:1024px){.kDYmE{margin:1rem;}}/*!sc*/
+data-styled.g76[id="sc-fmgx06-0"]{content:"kDYmE,"}/*!sc*/
+.ceyIaR{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;width:100%;height:16rem;overflow:hidden;position:relative;border-radius:1rem;box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.1);}/*!sc*/
+data-styled.g77[id="sc-fmgx06-1"]{content:"ceyIaR,"}/*!sc*/
+.gYJjBE{margin:2rem 0;font-size:2.4rem;line-height:1.6;text-align:center;}/*!sc*/
+data-styled.g78[id="sc-fmgx06-2"]{content:"gYJjBE,"}/*!sc*/
+.ceUjEl{position:fixed;top:20rem;left:0;}/*!sc*/
+.ceUjEl .toc-link{font-size:1rem;color:#666666;}/*!sc*/
+.ceUjEl .toc-list{padding-left:1rem;line-height:1.6;list-style-type:none;}/*!sc*/
+.ceUjEl .is-active-link{color:#5FB878;}/*!sc*/
+.ceUjEl .is-active-link::before{background:#5FB878;}/*!sc*/
+@media only screen and (max-width:1024px){.ceUjEl{display:none;}}/*!sc*/
+data-styled.g79[id="sc-fmgx06-3"]{content:"ceUjEl,"}/*!sc*/
+.jBuTYL{max-width:58rem;margin:0 auto;}/*!sc*/
+.jBuTYL h2{margin:2.5rem 0 1.25rem;font-size:2rem;}/*!sc*/
+.jBuTYL h3{margin:1.875rem 0 1.25rem;font-size:1.5rem;}/*!sc*/
+.jBuTYL p{margin-bottom:1.25rem;font-size:1rem;line-height:1.65;}/*!sc*/
+.jBuTYL p code{background:#ebedf0;font-size:90%;border-radius:0.4rem;padding:0.2rem 0.4rem;}/*!sc*/
+.jBuTYL pre{font-size:90%;margin:2rem 0;border-radius:0.4rem;padding:1rem !important;line-height:1.5;background-color:rgb(40,44,52) !important;}/*!sc*/
+.jBuTYL img{display:block;margin:0 auto 1rem;}/*!sc*/
+.jBuTYL iframe{margin:2rem 0;height:35rem;}/*!sc*/
+.jBuTYL table{border-collapse:collapse;}/*!sc*/
+.jBuTYL tr:nth-of-type(2n){background-color:#fbfbfb;}/*!sc*/
+.jBuTYL td,.jBuTYL th{line-height:1.4;border:1px solid #e6e6e6;padding:0.8rem;}/*!sc*/
+.jBuTYL th{font-weight:700;}/*!sc*/
+.jBuTYL a{position:relative;color:#25c3a0;}/*!sc*/
+.jBuTYL a:hover{-webkit-text-decoration:underline #25c3a0;text-decoration:underline #25c3a0;}/*!sc*/
+.jBuTYL ul{padding-left:2rem;}/*!sc*/
+.jBuTYL li{line-height:1.6;}/*!sc*/
+data-styled.g80[id="sc-fmgx06-4"]{content:"jBuTYL,"}/*!sc*/
+.hDzKnp{background:#ffffff;padding:1rem;border-radius:1rem;}/*!sc*/
+@media only screen and (max-width:1024px){.hDzKnp{margin-bottom:2rem;}}/*!sc*/
+data-styled.g81[id="sc-fmgx06-5"]{content:"hDzKnp,"}/*!sc*/
+.jdTpJU{margin:2rem 0 4rem 0;padding:1rem;font-size:1.1rem;line-height:1.6;color:#1c1e21;background:#e6f6e6;border-left:0.3rem solid rgba(0,150,94,0.6);border-radius:0.5rem;}/*!sc*/
+data-styled.g82[id="sc-fmgx06-6"]{content:"jdTpJU,"}/*!sc*/
+@-webkit-keyframes bkUZKo{0%{-webkit-transform:rotate(-12deg);-ms-transform:rotate(-12deg);transform:rotate(-12deg);}8%{-webkit-transform:rotate(12deg);-ms-transform:rotate(12deg);transform:rotate(12deg);}10%{-webkit-transform:rotate(24deg);-ms-transform:rotate(24deg);transform:rotate(24deg);}18%,20%{-webkit-transform:rotate(-24deg);-ms-transform:rotate(-24deg);transform:rotate(-24deg);}28%,30%{-webkit-transform:rotate(24deg);-ms-transform:rotate(24deg);transform:rotate(24deg);}38%,40%{-webkit-transform:rotate(-24deg);-ms-transform:rotate(-24deg);transform:rotate(-24deg);}48%,50%{-webkit-transform:rotate(24deg);-ms-transform:rotate(24deg);transform:rotate(24deg);}58%,60%{-webkit-transform:rotate(-24deg);-ms-transform:rotate(-24deg);transform:rotate(-24deg);}68%{-webkit-transform:rotate(24deg);-ms-transform:rotate(24deg);transform:rotate(24deg);}100%,75%{-webkit-transform:rotate(0);-ms-transform:rotate(0);transform:rotate(0);}}/*!sc*/
+@keyframes bkUZKo{0%{-webkit-transform:rotate(-12deg);-ms-transform:rotate(-12deg);transform:rotate(-12deg);}8%{-webkit-transform:rotate(12deg);-ms-transform:rotate(12deg);transform:rotate(12deg);}10%{-webkit-transform:rotate(24deg);-ms-transform:rotate(24deg);transform:rotate(24deg);}18%,20%{-webkit-transform:rotate(-24deg);-ms-transform:rotate(-24deg);transform:rotate(-24deg);}28%,30%{-webkit-transform:rotate(24deg);-ms-transform:rotate(24deg);transform:rotate(24deg);}38%,40%{-webkit-transform:rotate(-24deg);-ms-transform:rotate(-24deg);transform:rotate(-24deg);}48%,50%{-webkit-transform:rotate(24deg);-ms-transform:rotate(24deg);transform:rotate(24deg);}58%,60%{-webkit-transform:rotate(-24deg);-ms-transform:rotate(-24deg);transform:rotate(-24deg);}68%{-webkit-transform:rotate(24deg);-ms-transform:rotate(24deg);transform:rotate(24deg);}100%,75%{-webkit-transform:rotate(0);-ms-transform:rotate(0);transform:rotate(0);}}/*!sc*/
+data-styled.g113[id="sc-keyframes-bkUZKo"]{content:"bkUZKo,"}/*!sc*/
+@-webkit-keyframes jbqKoD{0%{background-position:0 0;}100%{background-position:-2600px 0;}}/*!sc*/
+@keyframes jbqKoD{0%{background-position:0 0;}100%{background-position:-2600px 0;}}/*!sc*/
+data-styled.g114[id="sc-keyframes-jbqKoD"]{content:"jbqKoD,"}/*!sc*/
+</style></head><body><div><div id="__next"><div class="sc-1mu45do-0 bGhGQv"><section class="sc-132r4se-0 erwVIm"><nav class="sc-yz68lp-0 jckdNE"><a href="/" class="sc-yz68lp-2 hBnPjM"></a><div class="sc-yz68lp-1 hNztIA"><a href="/"><span class="sc-5mxuof-0 himExP"><svg width="1rem" height="1rem" viewBox="0 0 18 18"><use xlink:href="#home" href="#home"></use></svg></span>首页</a><a href="/post"><span class="sc-5mxuof-0 himExP"><svg width="1rem" height="1rem" viewBox="0 0 16 18"><use xlink:href="#article" href="#article"></use></svg></span>文章</a><a href="/project">项目</a><a href="/archive">归档</a><a href="/friendLink">友情链接</a><a href="/about">关于</a></div></nav><main class="sc-132r4se-1 eppLLS"><article class="sc-fmgx06-0 kDYmE"><aside class="sc-fmgx06-3 ceUjEl postMenu"></aside><article class="sc-fmgx06-4 jBuTYL"><div class="sc-fmgx06-1 ceyIaR"><span style="box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:absolute;top:0;left:0;bottom:0;right:0"><img alt="浏览器进度条-Nprogress" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" decoding="async" data-nimg="fill" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;object-fit:cover;background-size:cover;background-position:0% 0%;filter:blur(20px);background-image:url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNMT0iYCQAEHwHCrSm2UwAAAABJRU5ErkJggg==&quot;)"/><noscript><img alt="浏览器进度条-Nprogress" src="/images/articles/article-01.jpeg" decoding="async" data-nimg="fill" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;object-fit:cover" loading="lazy"/></noscript></span></div><article class="sc-fmgx06-5 hDzKnp"><h1 class="sc-fmgx06-2 gYJjBE">浏览器进度条-Nprogress</h1><div class="sc-1mlm0xy-0 lgWwoV"><time data-last-modified-date="最后一次编辑于 2023年06月30日" class="sc-1mlm0xy-2 jeNnIx">发布于 <!-- -->2023年06月30日</time><span class="sc-1mlm0xy-1 kIVCgM">100<!-- --> PV</span></div><div><blockquote class="sc-fmgx06-6 jdTpJU">本文主要介绍了Nprogress的基本用法和配置，以及在Vue、React等场景下的使用方法。</blockquote><div class="postDetailContent"><p><a href="https://github.com/rstacruz/nprogress">NProgress</a>实现显示加载进度条效果，具有逼真的动画涓涓细流来说服你的用户，无页面跳转效果 ，极大提高用户体验效果.</p>
+<p>本文主要介绍了Nprogress的基本用法和配置，以及在Vue、React等场景下的使用方法。</p>
+<h2 level="2" id="效果图">效果图</h2>
+<h2 level="2" id="安装">安装</h2>
+<ol>
+<li>npm安装</li>
+</ol>
+<pre><div style="display:block;overflow-x:auto;padding:0.5em;color:#abb2bf;background:#282c34"><code class="language-bash" style="white-space:pre"><span>// 下载安装
+</span>npm install --save nprogerss </code></div></pre>
+<pre><div style="display:block;overflow-x:auto;padding:0.5em;color:#abb2bf;background:#282c34"><code class="language-js" style="white-space:pre"><span style="color:#5c6370;font-style:italic">// 引用</span><span>
+</span><span></span><span style="color:#c678dd">import</span><span> NProgress </span><span style="color:#c678dd">from</span><span> </span><span style="color:#98c379">&#x27;nprogress&#x27;</span><span>
+</span><span></span><span style="color:#c678dd">import</span><span> </span><span style="color:#98c379">&#x27;nprogress/nprogress.css&#x27;</span></code></div></pre>
+<ol>
+<li>外链引入方式</li>
+</ol>
+<pre><div style="display:block;overflow-x:auto;padding:0.5em;color:#abb2bf;background:#282c34"><code class="language-js" style="white-space:pre"><span>&lt;script </span><span style="color:#98c379">src</span><span>=</span><span style="color:#98c379">&#x27;nprogress.js&#x27;</span><span>&gt;&lt;/script&gt;
+</span><span>&lt;link </span><span style="color:#98c379">rel</span><span>=</span><span style="color:#98c379">&#x27;stylesheet&#x27;</span><span> </span><span style="color:#98c379">href</span><span>=</span><span style="color:#98c379">&#x27;nprogress.css&#x27;</span><span>/&gt;</span></code></div></pre>
+<ol>
+<li>CDN引用</li>
+</ol>
+<pre><div style="display:block;overflow-x:auto;padding:0.5em;color:#abb2bf;background:#282c34"><code class="language-js" style="white-space:pre"><span>https:</span><span style="color:#98c379">//u</span><span>npkg.com</span><span style="color:#98c379">/nprogress@0.2.0/</span><span>nprogress.js
+</span><span>https:</span><span style="color:#98c379">//u</span><span>npkg.com</span><span style="color:#98c379">/nprogress@0.2.0/</span><span>nprogress.css</span></code></div></pre>
+<h2 level="2" id="用法">用法</h2>
+<ol>
+<li>基本用法</li>
+</ol>
+<pre><div style="display:block;overflow-x:auto;padding:0.5em;color:#abb2bf;background:#282c34"><code class="language-js" style="white-space:pre"><span class="hljs-module-access hljs-module hljs-identifier">NProgress</span><span class="hljs-module-access hljs-module">.</span><span>start</span><span style="color:#56b6c2">()</span><span>;			</span><span style="color:#5c6370;font-style:italic">// 开启进度条</span><span>
+</span><span></span><span class="hljs-module-access hljs-module hljs-identifier">NProgress</span><span class="hljs-module-access hljs-module">.</span><span style="color:#c678dd">done</span><span style="color:#56b6c2">()</span><span>;			</span><span style="color:#5c6370;font-style:italic">// 关闭进度条</span></code></div></pre>
+<ol start="2">
+<li>高级用法</li>
+</ol>
+<p><strong>设置百分比</strong> ：调用 .set(n) 方法，其中n的范围0-1</p>
+<pre><code>NProgress.set(0.0);     // Sorta same as .start()
+NProgress.set(0.4);
+NProgress.set(1.0);     // Sorta same as .done()
+</code></pre>
+<p><strong>增量</strong>：调用 .inc() 方法，以随机量递增进度条，永远不会达到100%，用于每个图像负载（或类似）</p>
+<pre><code>NProgress.inc();
+</code></pre>
+<p><strong>特定值增量</strong>：调用 .inc(n) 方法以特定值递增进度条</p>
+<pre><code>NProgress.inc(0.2);    // This will get the current status value and adds 0.2 until status is 0.994
+</code></pre>
+<p><strong>强制完成</strong>：通过传递 true 到 .done() 方法，将显示进度条，即使它未显示（默认如果不调用 .start() 方法， .done() 方法不会做任何事）</p>
+<pre><code>NProgress.done(true);
+</code></pre>
+<p><strong>获取状态值</strong>：使用 .status 获取状态值</p>
+<h2 level="2" id="配置">配置</h2>
+<p><strong>minimum</strong>：更改启动时使用的最小百分比（默认：0.08）</p>
+<pre><code>NProgress.configure({ minimum: 0.1 });
+</code></pre>
+<p><strong>template</strong>：可以使用 template 更改标记，若要使进度条保持工作，请将元素 role=&#x27;bar&#x27; 保留在那里，参阅默认模板以进行参考</p>
+<pre><code>NProgress.configure({
+  template: &quot;&lt;div class=&#x27;....&#x27;&gt;...&lt;/div&gt;&quot;
+});
+</code></pre>
+<p><strong>easing和speed</strong>：使用 easing（a CSS easing string）和 speed（ms）调整动画（默认：ease 和 200）</p>
+<pre><code>NProgress.configure({ easing: &#x27;ease&#x27;, speed: 500 });
+</code></pre>
+<p><strong>trickle</strong>：将其设置为 false 关闭自动递增行为（默认：true）</p>
+<pre><code>NProgress.configure({ trickle: false });
+</code></pre>
+<p><strong>trickleSpeed</strong>：调整滴答/递增的频繁度（以ms表示）</p>
+<pre><code>NProgress.configure({ trickleSpeed: 200 });
+</code></pre>
+<p><strong>showSpinner</strong>：将其设置为 false 来关闭 Loading Spinner（默认：true）</p>
+<pre><code>NProgress.configure({ showSpinner: false });
+</code></pre>
+<p><strong>parent</strong>：指定此选项以更改父容器（默认：body）</p>
+<pre><code>NProgress.configure({ parent: &#x27;#container&#x27; });
+</code></pre>
+<h2 level="2" id="定制">定制</h2>
+<p>根据您的喜好编辑 nprogress.css 文件</p>
+<h2 level="2" id="页面切换中使用（Vue）">页面切换中使用（Vue）</h2>
+<p>在路由文件中进行配置</p>
+<pre><code>// ~/router/index.js
+
+import Vue from &#x27;vue&#x27;
+import VueRouter from &#x27;vue-router&#x27;
+//引入nprogress 进度条插件
+import NProgress from &#x27;nprogress&#x27;
+
+Vue.use(VueRouter);
+
+// 简单配置  进度条,可以不配置：在axios中我们不再做配置，以用来区分。
+NProgress.inc(0.2)
+NProgress.configure({ easing: &#x27;ease&#x27;, speed: 500, showSpinner: false })
+
+
+export const constRouter = [
+    {
+        path: &#x27;/login&#x27;,
+        component: () =&gt; import(&#x27;@/views/login/Login&#x27;),
+    },
+    ...
+]
+
+const router = new VueRouter({
+    mode: &#x27;history&#x27;,
+    base: process.env.BASE_URL,
+    routes: constRouter
+})
+
+// 页面路由刚开始切换的时候
+router.beforeEach(async (to,from,next) =&gt; {
+	// 开启进度条
+	NProgress.start();
+})
+
+// 页面路由切换完毕的时候
+router.afterEach(() =&gt; {
+	// 关闭进度条
+    NProgress.done()
+})
+
+
+export default router
+</code></pre>
+<h2 level="2" id="页面切换中使用（React）">页面切换中使用（React）</h2>
+<p>在route中绑定nprogress</p>
+<p>新建一个FancyRoute.js文件，在hooks中绑定nprogress的开始与结尾，这样在进行路由的切换时就可以触发到nprogress</p>
+<pre><code>import React from &#x27;react&#x27;
+import { Route } from &#x27;react-router-dom&#x27;
+import nprogress from &#x27;nprogress&#x27;
+import &#x27;nprogress/nprogress.css&#x27;;
+import &#x27;../resources/FancyRoute.css&#x27;
+const FancyRoute = props =&gt; {
+  React.useState(nprogress.start());
+  React.useEffect(() =&gt; {
+    nprogress.done();
+    return () =&gt; nprogress.start();
+  });
+  return (
+    &lt;Route {...props} /&gt;
+  );
+};
+export default FancyRoute
+</code></pre>
+<p>在对应的route.jsx文件中使用到刚编写的FancyRoute.js文件</p>
+<pre><code>import React, { Suspense, lazy } from &#x27;react&#x27;;
+import {  Switch, NavLink } from &#x27;react-router-dom&#x27;;
+import { Layout, Menu } from &#x27;antd&#x27;;
+import FancyRoute from &#x27;./plugin/FancyRoute&#x27;;
+const Home = lazy(() =&gt; import(&#x27;./components/main&#x27;));
+const About = lazy(() =&gt; import(&#x27;./components/test&#x27;));
+const { Header, Content, Footer } = Layout;
+const BasicRoute = () =&gt; (
+  &lt;Layout&gt;
+    &lt;Header style={{ position: &#x27;fixed&#x27;, zIndex: 1, width: &#x27;100%&#x27; }}&gt;
+      &lt;div className=&quot;logo&quot; /&gt;
+      &lt;Menu theme=&quot;dark&quot; mode=&quot;horizontal&quot; defaultSelectedKeys={[&#x27;2&#x27;]}&gt;
+        &lt;Menu.Item key=&quot;1&quot;&gt;&lt;NavLink to={&#x27;/&#x27;}&gt;nav 1&lt;/NavLink&gt;&lt;/Menu.Item&gt;
+        &lt;Menu.Item key=&quot;2&quot;&gt;&lt;NavLink to={&#x27;home&#x27;}&gt;nav 2&lt;/NavLink&gt;&lt;/Menu.Item&gt;
+        &lt;Menu.Item key=&quot;3&quot;&gt;&lt;NavLink to={&#x27;/&#x27;}&gt;nav 3&lt;/NavLink&gt;&lt;/Menu.Item&gt;
+      &lt;/Menu&gt;
+    &lt;/Header&gt;
+    &lt;Content style={{ marginTop: 64 }}&gt;
+      &lt;Suspense fallback={&lt;div&gt;Loading...&lt;/div&gt;}&gt;
+        &lt;Switch&gt;
+             {/*引用上一步创建的FancyRoute*/}
+          &lt;FancyRoute exact path=&quot;/&quot; component={Home} /&gt;
+          &lt;FancyRoute path=&quot;/home&quot; component={About} /&gt;
+        &lt;/Switch&gt;
+      &lt;/Suspense&gt;
+    &lt;/Content&gt;
+    &lt;Footer style={{ textAlign: &#x27;center&#x27; }}&gt;Ant Design ©2018 Created by Ant UED&lt;/Footer&gt;
+  &lt;/Layout&gt;
+);
+export default BasicRoute;
+</code></pre>
+<h2 level="2" id="接口请求中使用">接口请求中使用</h2>
+<p>在【axios请求配置】文件中:</p>
+<pre><code>import axios from &#x27;axios&#x27;
+//引入nprogress 进度条插件
+import NProgress from &#x27;nprogress&#x27;
+
+// 创建axios实例
+const service = axios.create({
+    baseURL: process.env.VUE_APP_BASE_API, //URL地址   环境变量文件
+    timeout: 5000 ,//超时
+})
+
+// 请求拦截器
+service.interceptors.request.use(
+    config =&gt; {
+    	// 开启进度条
+		NProgress.start();
+        return config
+    },
+    error =&gt; {
+        return Promise.reject(error)
+    }
+)
+
+// 响应拦截器
+service.interceptors.response.use(
+    response =&gt;{
+        // 关闭进度条
+        NProgress.done()
+    	return Promise.reject(response)
+    },
+    error =&gt; {
+        // 关闭进度条
+        NProgress.done()
+        return Promise.reject(error)
+    }
+)
+
+export default service;
+</code></pre></div></div></article></article></article></main></section></div><div class="sc-wkso3y-2 etuAXU SwitchTheme"><div id="SwitchThemeWrapper" class="light switch"><label for="switch"><input type="checkbox" id="switch"/><div class="toggle-wrapper"><div class="sc-wkso3y-1 bquxby"><span class="sc-wkso3y-0 iamDEq"><span class="sc-5mxuof-0 clJVaL"><svg width="2.2rem" height="2.2rem" viewBox="0 0 28 28"><use xlink:href="#night" href="#night"></use></svg></span></span><span class="sc-wkso3y-0 iamDEq"><span class="sc-5mxuof-0 clJVaL"><svg width="2.2rem" height="2.2rem" viewBox="0 0 28 28"><use xlink:href="#day" href="#day"></use></svg></span></span></div><div class="tree-left"><div class="tree"></div><div class="trunk"><div class="branch"></div><div class="branch"></div></div></div><div class="tree-right"><div class="tree-back"><div class="trunk"></div></div><div class="tree-front"><div class="trunk"></div></div></div><div class="moon"></div><div class="stars"><div class="star big-star"><div class="vertical"></div><div class="horizontal"></div></div><div class="star small-star"><div class="vertical"></div><div class="horizontal"></div></div></div><div class="sun"></div><div class="hills"><div class="hill-left"></div><div class="hill-right"></div></div></div></label></div></div><div class="sc-1fgaa7z-0 hVyOOO"></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"postData":{"id":"article-01","markdown":"[NProgress](https://github.com/rstacruz/nprogress)实现显示加载进度条效果，具有逼真的动画涓涓细流来说服你的用户，无页面跳转效果 ，极大提高用户体验效果.\n\n本文主要介绍了Nprogress的基本用法和配置，以及在Vue、React等场景下的使用方法。\n\n## 效果图\n\n## 安装\n\n1. npm安装\n\n``` bash\n// 下载安装\nnpm install --save nprogerss \n```\n\n``` js\n// 引用\nimport NProgress from 'nprogress'\nimport 'nprogress/nprogress.css'\n```\n\n1. 外链引入方式\n\n``` js\n\u003cscript src='nprogress.js'\u003e\u003c/script\u003e\n\u003clink rel='stylesheet' href='nprogress.css'/\u003e\n```\n\n1. CDN引用\n  \n``` js\nhttps://unpkg.com/nprogress@0.2.0/nprogress.js\nhttps://unpkg.com/nprogress@0.2.0/nprogress.css\n```\n## 用法\n\n1. 基本用法\n\n``` js\nNProgress.start();\t\t\t// 开启进度条\nNProgress.done();\t\t\t// 关闭进度条\n```\n\n2. 高级用法\n\n**设置百分比** ：调用 .set(n) 方法，其中n的范围0-1   \n\n```\nNProgress.set(0.0);     // Sorta same as .start()\nNProgress.set(0.4);\nNProgress.set(1.0);     // Sorta same as .done()\n```\n\n**增量**：调用 .inc() 方法，以随机量递增进度条，永远不会达到100%，用于每个图像负载（或类似）\n\n```\nNProgress.inc();\n```\n\n**特定值增量**：调用 .inc(n) 方法以特定值递增进度条\n\n```\nNProgress.inc(0.2);    // This will get the current status value and adds 0.2 until status is 0.994\n```\n\n**强制完成**：通过传递 true 到 .done() 方法，将显示进度条，即使它未显示（默认如果不调用 .start() 方法， .done() 方法不会做任何事）\n\n```\nNProgress.done(true);\n```\n\n**获取状态值**：使用 .status 获取状态值\n\n## 配置\n\n**minimum**：更改启动时使用的最小百分比（默认：0.08）\n\n```\nNProgress.configure({ minimum: 0.1 });\n```\n\n**template**：可以使用 template 更改标记，若要使进度条保持工作，请将元素 role='bar' 保留在那里，参阅默认模板以进行参考\n\n```\nNProgress.configure({\n  template: \"\u003cdiv class='....'\u003e...\u003c/div\u003e\"\n});\n```\n\n**easing和speed**：使用 easing（a CSS easing string）和 speed（ms）调整动画（默认：ease 和 200）\n\n```\nNProgress.configure({ easing: 'ease', speed: 500 });\n```\n\n**trickle**：将其设置为 false 关闭自动递增行为（默认：true）\n\n```\nNProgress.configure({ trickle: false });\n```\n\n**trickleSpeed**：调整滴答/递增的频繁度（以ms表示）\n\n```\nNProgress.configure({ trickleSpeed: 200 });\n```\n\n**showSpinner**：将其设置为 false 来关闭 Loading Spinner（默认：true）\n\n```\nNProgress.configure({ showSpinner: false });\n```\n\n**parent**：指定此选项以更改父容器（默认：body）\n\n```\nNProgress.configure({ parent: '#container' });\n```\n\n## 定制\n\n根据您的喜好编辑 nprogress.css 文件\n\n## 页面切换中使用（Vue）\n\n在路由文件中进行配置\n\n```\n// ~/router/index.js\n\nimport Vue from 'vue'\nimport VueRouter from 'vue-router'\n//引入nprogress 进度条插件\nimport NProgress from 'nprogress'\n\nVue.use(VueRouter);\n\n// 简单配置  进度条,可以不配置：在axios中我们不再做配置，以用来区分。\nNProgress.inc(0.2)\nNProgress.configure({ easing: 'ease', speed: 500, showSpinner: false })\n\n\nexport const constRouter = [\n    {\n        path: '/login',\n        component: () =\u003e import('@/views/login/Login'),\n    },\n    ...\n]\n\nconst router = new VueRouter({\n    mode: 'history',\n    base: process.env.BASE_URL,\n    routes: constRouter\n})\n\n// 页面路由刚开始切换的时候\nrouter.beforeEach(async (to,from,next) =\u003e {\n\t// 开启进度条\n\tNProgress.start();\n})\n\n// 页面路由切换完毕的时候\nrouter.afterEach(() =\u003e {\n\t// 关闭进度条\n    NProgress.done()\n})\n\n\nexport default router\n```\n\n## 页面切换中使用（React）\n\n在route中绑定nprogress\n\n新建一个FancyRoute.js文件，在hooks中绑定nprogress的开始与结尾，这样在进行路由的切换时就可以触发到nprogress\n\n```\nimport React from 'react'\nimport { Route } from 'react-router-dom'\nimport nprogress from 'nprogress'\nimport 'nprogress/nprogress.css';\nimport '../resources/FancyRoute.css'\nconst FancyRoute = props =\u003e {\n  React.useState(nprogress.start());\n  React.useEffect(() =\u003e {\n    nprogress.done();\n    return () =\u003e nprogress.start();\n  });\n  return (\n    \u003cRoute {...props} /\u003e\n  );\n};\nexport default FancyRoute\n```\n\n在对应的route.jsx文件中使用到刚编写的FancyRoute.js文件\n\n```\nimport React, { Suspense, lazy } from 'react';\nimport {  Switch, NavLink } from 'react-router-dom';\nimport { Layout, Menu } from 'antd';\nimport FancyRoute from './plugin/FancyRoute';\nconst Home = lazy(() =\u003e import('./components/main'));\nconst About = lazy(() =\u003e import('./components/test'));\nconst { Header, Content, Footer } = Layout;\nconst BasicRoute = () =\u003e (\n  \u003cLayout\u003e\n    \u003cHeader style={{ position: 'fixed', zIndex: 1, width: '100%' }}\u003e\n      \u003cdiv className=\"logo\" /\u003e\n      \u003cMenu theme=\"dark\" mode=\"horizontal\" defaultSelectedKeys={['2']}\u003e\n        \u003cMenu.Item key=\"1\"\u003e\u003cNavLink to={'/'}\u003enav 1\u003c/NavLink\u003e\u003c/Menu.Item\u003e\n        \u003cMenu.Item key=\"2\"\u003e\u003cNavLink to={'home'}\u003enav 2\u003c/NavLink\u003e\u003c/Menu.Item\u003e\n        \u003cMenu.Item key=\"3\"\u003e\u003cNavLink to={'/'}\u003enav 3\u003c/NavLink\u003e\u003c/Menu.Item\u003e\n      \u003c/Menu\u003e\n    \u003c/Header\u003e\n    \u003cContent style={{ marginTop: 64 }}\u003e\n      \u003cSuspense fallback={\u003cdiv\u003eLoading...\u003c/div\u003e}\u003e\n        \u003cSwitch\u003e\n             {/*引用上一步创建的FancyRoute*/}\n          \u003cFancyRoute exact path=\"/\" component={Home} /\u003e\n          \u003cFancyRoute path=\"/home\" component={About} /\u003e\n        \u003c/Switch\u003e\n      \u003c/Suspense\u003e\n    \u003c/Content\u003e\n    \u003cFooter style={{ textAlign: 'center' }}\u003eAnt Design ©2018 Created by Ant UED\u003c/Footer\u003e\n  \u003c/Layout\u003e\n);\nexport default BasicRoute;\n```\n\n## 接口请求中使用\n\n在【axios请求配置】文件中:\n\n```\nimport axios from 'axios'\n//引入nprogress 进度条插件\nimport NProgress from 'nprogress'\n\n// 创建axios实例\nconst service = axios.create({\n    baseURL: process.env.VUE_APP_BASE_API, //URL地址   环境变量文件\n    timeout: 5000 ,//超时\n})\n\n// 请求拦截器\nservice.interceptors.request.use(\n    config =\u003e {\n    \t// 开启进度条\n\t\tNProgress.start();\n        return config\n    },\n    error =\u003e {\n        return Promise.reject(error)\n    }\n)\n\n// 响应拦截器\nservice.interceptors.response.use(\n    response =\u003e{\n        // 关闭进度条\n        NProgress.done()\n    \treturn Promise.reject(response)\n    },\n    error =\u003e {\n        // 关闭进度条\n        NProgress.done()\n        return Promise.reject(error)\n    }\n)\n\nexport default service;\n```","title":"浏览器进度条-Nprogress","summary":"本文主要介绍了Nprogress的基本用法和配置，以及在Vue、React等场景下的使用方法。","tags":["vue","React","npm"],"categories":null,"date":"Fri, 30 Jun 2023 16:33:43 GMT","updated":"Fri, 30 Jun 2023 16:33:43 GMT","coverImg":null,"dateYMD":"2023-06-30","wordcount":"本文字数：520 字    阅读完需：约 3 分钟"}},"__N_SSG":true},"page":"/post/[id]","query":{"id":"article-01"},"buildId":"cuZce-tCUs9C6L25idFvY","isFallback":false,"gsp":true,"scriptLoader":[]}</script></div></body></html>

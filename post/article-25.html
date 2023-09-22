@@ -1,0 +1,152 @@
+<!DOCTYPE html><html lang="zh"><head><link rel="icon" href="/favicon_logo.ico"/><title>React路由传参 | 码砖猿</title><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,shrink-to-fit=no"/><meta name="description" content="React路由传参 | 码砖猿"/><meta name="theme-color" content="#ffffff"/><link rel="icon" href="/favicon_logo.ico"/><meta name="next-head-count" content="8"/><link rel="shortcut icon" href="/favicon_logo.ico"/><script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script><link rel="preload" href="/_next/static/css/911ce132c4b5394b.css" as="style"/><link rel="stylesheet" href="/_next/static/css/911ce132c4b5394b.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-1315a4788720b1e8.js" defer=""></script><script src="/_next/static/chunks/framework-0ba0ddd33199226d.js" defer=""></script><script src="/_next/static/chunks/main-a73a1e2d41ed46c0.js" defer=""></script><script src="/_next/static/chunks/pages/_app-b77ff67f95cd1e05.js" defer=""></script><script src="/_next/static/chunks/75fc9c18-c7bf0df5a4fee36b.js" defer=""></script><script src="/_next/static/chunks/996-8d936169ef317219.js" defer=""></script><script src="/_next/static/chunks/675-d57fd818f9447559.js" defer=""></script><script src="/_next/static/chunks/448-841005e54e9a77a9.js" defer=""></script><script src="/_next/static/chunks/pages/post/%5Bid%5D-18b56f1973194930.js" defer=""></script><script src="/_next/static/cuZce-tCUs9C6L25idFvY/_buildManifest.js" defer=""></script><script src="/_next/static/cuZce-tCUs9C6L25idFvY/_ssgManifest.js" defer=""></script><style data-styled="" data-styled-version="5.3.5">html{font-size:16px;}/*!sc*/
+@media only screen and (max-width:1024px){html{font-size:15px;overflow-x:hidden;}}/*!sc*/
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";-webkit-font-smoothing:antialiased;color:#1c1e21;cursor:url(data:;base64,AAACAAEAICAAAAMAAACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAgBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA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),auto;}/*!sc*/
+body{height:100%;background:#fff;}/*!sc*/
+a{color:#969696;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+p,figure{margin:0;}/*!sc*/
+h1,h2,h3,h4,h5,h6{margin-top:0;margin-bottom:1rem;}/*!sc*/
+button{outline:none;}/*!sc*/
+code{font-family:Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;}/*!sc*/
+.aplayer-list-title,.aplayer-title{color:#666 !important;}/*!sc*/
+@media only screen and (max-width:1024px){.aplayer{display:none;}.spinner-icon{display:none!important;}}/*!sc*/
+data-styled.g1[id="sc-global-gLJlMB1"]{content:"sc-global-gLJlMB1,"}/*!sc*/
+.bGhGQv{position:relative;overflow:hidden;width:100%;}/*!sc*/
+data-styled.g6[id="sc-1mu45do-0"]{content:"bGhGQv,"}/*!sc*/
+.hVyOOO{position:fixed;z-index:99999999;bottom:0rem;right:2rem;width:200px;height:126px;margin-left:-100px;background:url(images/cat.png) no-repeat 0 0;-webkit-animation:jbqKoD 1s steps(13) infinite;animation:jbqKoD 1s steps(13) infinite;-webkit-animation-play-state:paused;animation-play-state:paused;-webkit-animation-play-state:paused;}/*!sc*/
+data-styled.g7[id="sc-1fgaa7z-0"]{content:"hVyOOO,"}/*!sc*/
+.himExP{vertical-align:middle;display:inline-block;width:1rem;height:1rem;margin:0 0;margin:0 0;margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;}/*!sc*/
+.clJVaL{vertical-align:middle;display:inline-block;width:2.2rem;height:2.2rem;margin:0 0;margin:0 0;margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;}/*!sc*/
+data-styled.g8[id="sc-5mxuof-0"]{content:"himExP,clJVaL,"}/*!sc*/
+.iamDEq{-webkit-transition:all 500ms linear;transition:all 500ms linear;background-color:var(--day-night);display:inline-block;border-radius:50%;}/*!sc*/
+.iamDEq:first-child{-webkit-transform:translatey(-55px);-ms-transform:translatey(-55px);transform:translatey(-55px);}/*!sc*/
+.iamDEq:nth-child(2){-webkit-transform:translatey(0px);-ms-transform:translatey(0px);transform:translatey(0px);}/*!sc*/
+data-styled.g9[id="sc-wkso3y-0"]{content:"iamDEq,"}/*!sc*/
+.bquxby{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;position:absolute;z-index:6;width:8rem;height:2.5rem;padding:0 .3rem;overflow:hidden;}/*!sc*/
+data-styled.g10[id="sc-wkso3y-1"]{content:"bquxby,"}/*!sc*/
+.etuAXU{position:fixed;top:0.5rem;right:2.4rem;z-index:99999;}/*!sc*/
+@media only screen and (max-width:1024px){.etuAXU{display:none;}}/*!sc*/
+data-styled.g11[id="sc-wkso3y-2"]{content:"etuAXU,"}/*!sc*/
+.jckdNE{box-sizing:border-box;position:fixed;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;width:100%;padding:0 2.4rem;background:#ffffff;opacity:0.95;box-shadow:0 1px 40px -8px rgba(0,0,0,.5);z-index:9999;-webkit-transition:background 250ms linear;transition:background 250ms linear;top:-2px;}/*!sc*/
+@media only screen and (max-width:1024px){.jckdNE{display:none;}}/*!sc*/
+data-styled.g14[id="sc-yz68lp-0"]{content:"jckdNE,"}/*!sc*/
+.hNztIA{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:start;-webkit-justify-content:flex-start;-ms-flex-pack:start;justify-content:flex-start;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin-right:28.5rem;}/*!sc*/
+.hNztIA a{position:relative;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;white-space:nowrap;margin-left:1.6rem;padding:0 0.2rem;height:3.5rem;font-size:1rem;color:#666666;-webkit-transition:color 300ms ease;transition:color 300ms ease;}/*!sc*/
+.hNztIA a::after{position:absolute;content:'';bottom:0;left:0;width:0;height:0.4rem;background:#5FB878;-webkit-transition:width 300ms ease;transition:width 300ms ease;}/*!sc*/
+.hNztIA a svg{margin-right:0.5rem;width:1.1rem;height:1.1rem;fill:#666666;-webkit-transition:fill 300ms ease;transition:fill 300ms ease;}/*!sc*/
+.hNztIA a:hover{color:#5FB878;-webkit-transition:color 300ms ease;transition:color 300ms ease;}/*!sc*/
+.hNztIA a:hover::after{width:100%;}/*!sc*/
+.hNztIA a:hover svg{fill:#5FB878;stroke:#5FB878;-webkit-transition:fill 300ms ease;transition:fill 300ms ease;-webkit-animation:bkUZKo 2000ms ease infinite;animation:bkUZKo 2000ms ease infinite;}/*!sc*/
+data-styled.g15[id="sc-yz68lp-1"]{content:"hNztIA,"}/*!sc*/
+.hBnPjM{width:14.67rem;height:2.93rem;background:url('');cursor:pointer;background-repeat:no-repeat;background-position:center center;background-size:cover;}/*!sc*/
+data-styled.g16[id="sc-yz68lp-2"]{content:"hBnPjM,"}/*!sc*/
+.erwVIm{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;min-height:100vh;}/*!sc*/
+data-styled.g17[id="sc-132r4se-0"]{content:"erwVIm,"}/*!sc*/
+.eppLLS{-webkit-flex:1;-ms-flex:1;flex:1;overflow-x:hidden;}/*!sc*/
+@media only screen and (max-width:1024px){.eppLLS{margin-top:3.6rem;}}/*!sc*/
+data-styled.g18[id="sc-132r4se-1"]{content:"eppLLS,"}/*!sc*/
+.lgWwoV{margin:0 auto;text-align:center;line-height:1.6;color:#969696;}/*!sc*/
+data-styled.g73[id="sc-1mlm0xy-0"]{content:"lgWwoV,"}/*!sc*/
+.kIVCgM{margin-right:1.2rem;}/*!sc*/
+data-styled.g74[id="sc-1mlm0xy-1"]{content:"kIVCgM,"}/*!sc*/
+.jeNnIx{position:relative;margin-right:1.2rem;}/*!sc*/
+.jeNnIx:hover::before{position:absolute;content:'';top:0.6rem;left:5rem;width:0;height:0;border:0.6rem solid transparent;border-bottom-color:rgba(0,0,0,.7);}/*!sc*/
+.jeNnIx:hover::after{position:absolute;content:attr(data-last-modified-date);top:1.8rem;left:-1.3rem;padding:0.2rem;min-width:15rem;text-align:center;color:#fff;background:rgba(0,0,0,.7);border-radius:0.4rem;z-index:200;}/*!sc*/
+data-styled.g75[id="sc-1mlm0xy-2"]{content:"jeNnIx,"}/*!sc*/
+.kDYmE{position:relative;border-radius:1rem;margin:10rem auto 0;}/*!sc*/
+@media only screen and (max-width:1024px){.kDYmE{margin:1rem;}}/*!sc*/
+data-styled.g76[id="sc-fmgx06-0"]{content:"kDYmE,"}/*!sc*/
+.ceyIaR{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;width:100%;height:16rem;overflow:hidden;position:relative;border-radius:1rem;box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.1);}/*!sc*/
+data-styled.g77[id="sc-fmgx06-1"]{content:"ceyIaR,"}/*!sc*/
+.gYJjBE{margin:2rem 0;font-size:2.4rem;line-height:1.6;text-align:center;}/*!sc*/
+data-styled.g78[id="sc-fmgx06-2"]{content:"gYJjBE,"}/*!sc*/
+.ceUjEl{position:fixed;top:20rem;left:0;}/*!sc*/
+.ceUjEl .toc-link{font-size:1rem;color:#666666;}/*!sc*/
+.ceUjEl .toc-list{padding-left:1rem;line-height:1.6;list-style-type:none;}/*!sc*/
+.ceUjEl .is-active-link{color:#5FB878;}/*!sc*/
+.ceUjEl .is-active-link::before{background:#5FB878;}/*!sc*/
+@media only screen and (max-width:1024px){.ceUjEl{display:none;}}/*!sc*/
+data-styled.g79[id="sc-fmgx06-3"]{content:"ceUjEl,"}/*!sc*/
+.jBuTYL{max-width:58rem;margin:0 auto;}/*!sc*/
+.jBuTYL h2{margin:2.5rem 0 1.25rem;font-size:2rem;}/*!sc*/
+.jBuTYL h3{margin:1.875rem 0 1.25rem;font-size:1.5rem;}/*!sc*/
+.jBuTYL p{margin-bottom:1.25rem;font-size:1rem;line-height:1.65;}/*!sc*/
+.jBuTYL p code{background:#ebedf0;font-size:90%;border-radius:0.4rem;padding:0.2rem 0.4rem;}/*!sc*/
+.jBuTYL pre{font-size:90%;margin:2rem 0;border-radius:0.4rem;padding:1rem !important;line-height:1.5;background-color:rgb(40,44,52) !important;}/*!sc*/
+.jBuTYL img{display:block;margin:0 auto 1rem;}/*!sc*/
+.jBuTYL iframe{margin:2rem 0;height:35rem;}/*!sc*/
+.jBuTYL table{border-collapse:collapse;}/*!sc*/
+.jBuTYL tr:nth-of-type(2n){background-color:#fbfbfb;}/*!sc*/
+.jBuTYL td,.jBuTYL th{line-height:1.4;border:1px solid #e6e6e6;padding:0.8rem;}/*!sc*/
+.jBuTYL th{font-weight:700;}/*!sc*/
+.jBuTYL a{position:relative;color:#25c3a0;}/*!sc*/
+.jBuTYL a:hover{-webkit-text-decoration:underline #25c3a0;text-decoration:underline #25c3a0;}/*!sc*/
+.jBuTYL ul{padding-left:2rem;}/*!sc*/
+.jBuTYL li{line-height:1.6;}/*!sc*/
+data-styled.g80[id="sc-fmgx06-4"]{content:"jBuTYL,"}/*!sc*/
+.hDzKnp{background:#ffffff;padding:1rem;border-radius:1rem;}/*!sc*/
+@media only screen and (max-width:1024px){.hDzKnp{margin-bottom:2rem;}}/*!sc*/
+data-styled.g81[id="sc-fmgx06-5"]{content:"hDzKnp,"}/*!sc*/
+@-webkit-keyframes bkUZKo{0%{-webkit-transform:rotate(-12deg);-ms-transform:rotate(-12deg);transform:rotate(-12deg);}8%{-webkit-transform:rotate(12deg);-ms-transform:rotate(12deg);transform:rotate(12deg);}10%{-webkit-transform:rotate(24deg);-ms-transform:rotate(24deg);transform:rotate(24deg);}18%,20%{-webkit-transform:rotate(-24deg);-ms-transform:rotate(-24deg);transform:rotate(-24deg);}28%,30%{-webkit-transform:rotate(24deg);-ms-transform:rotate(24deg);transform:rotate(24deg);}38%,40%{-webkit-transform:rotate(-24deg);-ms-transform:rotate(-24deg);transform:rotate(-24deg);}48%,50%{-webkit-transform:rotate(24deg);-ms-transform:rotate(24deg);transform:rotate(24deg);}58%,60%{-webkit-transform:rotate(-24deg);-ms-transform:rotate(-24deg);transform:rotate(-24deg);}68%{-webkit-transform:rotate(24deg);-ms-transform:rotate(24deg);transform:rotate(24deg);}100%,75%{-webkit-transform:rotate(0);-ms-transform:rotate(0);transform:rotate(0);}}/*!sc*/
+@keyframes bkUZKo{0%{-webkit-transform:rotate(-12deg);-ms-transform:rotate(-12deg);transform:rotate(-12deg);}8%{-webkit-transform:rotate(12deg);-ms-transform:rotate(12deg);transform:rotate(12deg);}10%{-webkit-transform:rotate(24deg);-ms-transform:rotate(24deg);transform:rotate(24deg);}18%,20%{-webkit-transform:rotate(-24deg);-ms-transform:rotate(-24deg);transform:rotate(-24deg);}28%,30%{-webkit-transform:rotate(24deg);-ms-transform:rotate(24deg);transform:rotate(24deg);}38%,40%{-webkit-transform:rotate(-24deg);-ms-transform:rotate(-24deg);transform:rotate(-24deg);}48%,50%{-webkit-transform:rotate(24deg);-ms-transform:rotate(24deg);transform:rotate(24deg);}58%,60%{-webkit-transform:rotate(-24deg);-ms-transform:rotate(-24deg);transform:rotate(-24deg);}68%{-webkit-transform:rotate(24deg);-ms-transform:rotate(24deg);transform:rotate(24deg);}100%,75%{-webkit-transform:rotate(0);-ms-transform:rotate(0);transform:rotate(0);}}/*!sc*/
+data-styled.g113[id="sc-keyframes-bkUZKo"]{content:"bkUZKo,"}/*!sc*/
+@-webkit-keyframes jbqKoD{0%{background-position:0 0;}100%{background-position:-2600px 0;}}/*!sc*/
+@keyframes jbqKoD{0%{background-position:0 0;}100%{background-position:-2600px 0;}}/*!sc*/
+data-styled.g114[id="sc-keyframes-jbqKoD"]{content:"jbqKoD,"}/*!sc*/
+</style></head><body><div><div id="__next"><div class="sc-1mu45do-0 bGhGQv"><section class="sc-132r4se-0 erwVIm"><nav class="sc-yz68lp-0 jckdNE"><a href="/" class="sc-yz68lp-2 hBnPjM"></a><div class="sc-yz68lp-1 hNztIA"><a href="/"><span class="sc-5mxuof-0 himExP"><svg width="1rem" height="1rem" viewBox="0 0 18 18"><use xlink:href="#home" href="#home"></use></svg></span>首页</a><a href="/post"><span class="sc-5mxuof-0 himExP"><svg width="1rem" height="1rem" viewBox="0 0 16 18"><use xlink:href="#article" href="#article"></use></svg></span>文章</a><a href="/project">项目</a><a href="/archive">归档</a><a href="/friendLink">友情链接</a><a href="/about">关于</a></div></nav><main class="sc-132r4se-1 eppLLS"><article class="sc-fmgx06-0 kDYmE"><aside class="sc-fmgx06-3 ceUjEl postMenu"></aside><article class="sc-fmgx06-4 jBuTYL"><div class="sc-fmgx06-1 ceyIaR"><span style="box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:absolute;top:0;left:0;bottom:0;right:0"><img alt="React路由传参" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" decoding="async" data-nimg="fill" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;object-fit:cover;background-size:cover;background-position:0% 0%;filter:blur(20px);background-image:url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNMT0iYCQAEHwHCrSm2UwAAAABJRU5ErkJggg==&quot;)"/><noscript><img alt="React路由传参" src="/images/articles/article-25.jpeg" decoding="async" data-nimg="fill" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;object-fit:cover" loading="lazy"/></noscript></span></div><article class="sc-fmgx06-5 hDzKnp"><h1 class="sc-fmgx06-2 gYJjBE">React路由传参</h1><div class="sc-1mlm0xy-0 lgWwoV"><time data-last-modified-date="最后一次编辑于 2021年08月30日" class="sc-1mlm0xy-2 jeNnIx">发布于 <!-- -->2021年08月30日</time><span class="sc-1mlm0xy-1 kIVCgM">100<!-- --> PV</span></div><div><div class="postDetailContent"><h2 level="2" id="1、params">1、params</h2>
+<pre><div style="display:block;overflow-x:auto;padding:0.5em;color:#abb2bf;background:#282c34"><code class="language-ts" style="white-space:pre"><span style="color:#5c6370;font-style:italic">// 路由表中</span><span>
+</span><span>&lt;Route path=</span><span style="color:#98c379">&#x27;/mysort/:id&#x27;</span><span> component={Mysort}&gt;
+</span>
+<span></span><span style="color:#5c6370;font-style:italic">// Link  HTML方式</span><span>
+</span><span>&lt;link to=</span><span style="color:#98c379">&quot;/mysort/12121212&quot;</span><span>&gt;xxx&lt;/Link&gt;
+</span>
+<span></span><span style="color:#5c6370;font-style:italic">// js文件中跳转</span><span>
+</span><span>this</span><span style="color:#d19a66">.props</span><span style="color:#d19a66">.history</span><span style="color:#d19a66">.push</span><span>({pathname:</span><span style="color:#98c379">&quot;/mysort/&quot;</span><span> + id});
+</span>
+<span></span><span style="color:#5c6370;font-style:italic">// Mysort页面读取传递过来的参数（id = 12121212）:</span><span>
+</span><span>this</span><span style="color:#d19a66">.props</span><span style="color:#d19a66">.match</span><span style="color:#d19a66">.params</span><span style="color:#d19a66">.id</span><span>
+</span></code></div></pre>
+<p>优：刷新地址栏参数依旧存在，不会丢失
+劣：只能传递字符串，参数过多时，影响url美观</p>
+<h2 level="2" id="2、query">2、query</h2>
+<p>注：不需要配置路由表，路由表中的内容照常</p>
+<pre><div style="display:block;overflow-x:auto;padding:0.5em;color:#abb2bf;background:#282c34"><code class="language-ts" style="white-space:pre"><span style="color:#5c6370;font-style:italic">// 路由表中</span><span>
+</span>&lt;Route path=&#x27;/mysort&#x27; component={Mysort}/&gt;
+<!-- -->
+<span></span><span style="color:#5c6370;font-style:italic">// Link  HTML方式</span><span>
+</span><span>&lt;Link to={{ path : &#x27; /mysort&#x27; , query : { id: &#x27;</span><span style="color:#d19a66">12121212</span><span>&#x27; }}}&gt;
+</span>
+<span></span><span style="color:#5c6370;font-style:italic">// js文件中跳转</span><span>
+</span><span>this.props.history.push({pathname:</span><span style="color:#98c379">&quot;/mysort&quot;</span><span>,query: { id: &#x27;</span><span style="color:#d19a66">12121212</span><span>&#x27; }});
+</span>
+<span></span><span style="color:#5c6370;font-style:italic">// Mysort页面读取传递过来的参数（id = 12121212）:</span><span>
+</span>this.props.location.query.id
+</code></div></pre>
+<p>优：传递参数不限于字符串，亦可传递对象
+劣：刷新页面后，地址栏参数会丢失</p>
+<h2 level="2" id="3、state">3、state</h2>
+<p>注：此传参方式和query差不多，只是属性不一样，而且state传的参数是加密的，query传的参数是公开的，在地址栏</p>
+<pre><div style="display:block;overflow-x:auto;padding:0.5em;color:#abb2bf;background:#282c34"><code class="language-ts" style="white-space:pre"><span style="color:#5c6370;font-style:italic">// 路由表中</span><span>
+</span>&lt;Route path=&#x27;/mysort&#x27; component={Mysort}/&gt;
+<!-- -->
+<span></span><span style="color:#5c6370;font-style:italic">// Link  HTML方式</span><span>
+</span><span>&lt;Link to={{ path : &#x27; /mysort&#x27; , state : { id: &#x27;</span><span style="color:#d19a66">12121212</span><span>&#x27; }}}&gt; 
+</span>
+<span></span><span style="color:#5c6370;font-style:italic">// js文件中跳转</span><span>
+</span><span>this.props.history.push({pathname:</span><span style="color:#98c379">&quot;/mysort&quot;</span><span>,state : { id: &#x27;</span><span style="color:#d19a66">12121212</span><span>&#x27; }});
+</span>
+<span></span><span style="color:#5c6370;font-style:italic">// Mysort页面读取传递过来的参数（id = 12121212）:</span><span>
+</span>this.props.location.state.id
+</code></div></pre>
+<h2 level="2" id="4、search">4、search</h2>
+<pre><div style="display:block;overflow-x:auto;padding:0.5em;color:#abb2bf;background:#282c34"><code class="language-ts" style="white-space:pre"><span style="color:#5c6370;font-style:italic">// 路由表中</span><span>
+</span><span>&lt;Route path=</span><span style="color:#98c379">&#x27;/mysort &#x27;</span><span> component={Mysort}/&gt;
+</span>
+<span></span><span style="color:#5c6370;font-style:italic">// Link  HTML方式</span><span>
+</span><span>&lt;link to=</span><span style="color:#98c379">&quot;/mysort?id=12121212&quot;</span><span>&gt;xxx&lt;/Link&gt;
+</span>
+<span></span><span style="color:#5c6370;font-style:italic">// js文件中跳转</span><span>
+</span><span>this</span><span style="color:#d19a66">.props</span><span style="color:#d19a66">.history</span><span style="color:#d19a66">.push</span><span>({pathname:</span><span style="color:#98c379">&quot;/mysort?id&quot;</span><span> + id});
+</span>
+<span></span><span style="color:#5c6370;font-style:italic">// Mysort页面读取传递过来的参数（id = 12121212）:</span><span>
+</span><span>this</span><span style="color:#d19a66">.props</span><span style="color:#d19a66">.location</span><span style="color:#d19a66">.search</span><span style="color:#d19a66">.id</span><span>
+</span></code></div></pre></div></div></article></article></article></main></section></div><div class="sc-wkso3y-2 etuAXU SwitchTheme"><div id="SwitchThemeWrapper" class="light switch"><label for="switch"><input type="checkbox" id="switch"/><div class="toggle-wrapper"><div class="sc-wkso3y-1 bquxby"><span class="sc-wkso3y-0 iamDEq"><span class="sc-5mxuof-0 clJVaL"><svg width="2.2rem" height="2.2rem" viewBox="0 0 28 28"><use xlink:href="#night" href="#night"></use></svg></span></span><span class="sc-wkso3y-0 iamDEq"><span class="sc-5mxuof-0 clJVaL"><svg width="2.2rem" height="2.2rem" viewBox="0 0 28 28"><use xlink:href="#day" href="#day"></use></svg></span></span></div><div class="tree-left"><div class="tree"></div><div class="trunk"><div class="branch"></div><div class="branch"></div></div></div><div class="tree-right"><div class="tree-back"><div class="trunk"></div></div><div class="tree-front"><div class="trunk"></div></div></div><div class="moon"></div><div class="stars"><div class="star big-star"><div class="vertical"></div><div class="horizontal"></div></div><div class="star small-star"><div class="vertical"></div><div class="horizontal"></div></div></div><div class="sun"></div><div class="hills"><div class="hill-left"></div><div class="hill-right"></div></div></div></label></div></div><div class="sc-1fgaa7z-0 hVyOOO"></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"postData":{"id":"article-25","markdown":"## 1、params\n\n``` ts\n// 路由表中\n\u003cRoute path='/mysort/:id' component={Mysort}\u003e\n\n// Link  HTML方式\n\u003clink to=\"/mysort/12121212\"\u003exxx\u003c/Link\u003e\n\n// js文件中跳转\nthis.props.history.push({pathname:\"/mysort/\" + id});\n\n// Mysort页面读取传递过来的参数（id = 12121212）:\nthis.props.match.params.id\n\n```\n\n优：刷新地址栏参数依旧存在，不会丢失\n劣：只能传递字符串，参数过多时，影响url美观\n\n## 2、query\n注：不需要配置路由表，路由表中的内容照常\n``` ts\n// 路由表中\n\u003cRoute path='/mysort' component={Mysort}/\u003e\n\n// Link  HTML方式\n\u003cLink to={{ path : ' /mysort' , query : { id: '12121212' }}}\u003e\n\n// js文件中跳转\nthis.props.history.push({pathname:\"/mysort\",query: { id: '12121212' }});\n\n// Mysort页面读取传递过来的参数（id = 12121212）:\nthis.props.location.query.id\n\n```\n\n优：传递参数不限于字符串，亦可传递对象\n劣：刷新页面后，地址栏参数会丢失\n\n## 3、state\n注：此传参方式和query差不多，只是属性不一样，而且state传的参数是加密的，query传的参数是公开的，在地址栏\n\n``` ts\n// 路由表中\n\u003cRoute path='/mysort' component={Mysort}/\u003e\n\n// Link  HTML方式\n\u003cLink to={{ path : ' /mysort' , state : { id: '12121212' }}}\u003e \n\n// js文件中跳转\nthis.props.history.push({pathname:\"/mysort\",state : { id: '12121212' }});\n\n// Mysort页面读取传递过来的参数（id = 12121212）:\nthis.props.location.state.id\n\n```\n\n## 4、search\n``` ts\n// 路由表中\n\u003cRoute path='/mysort ' component={Mysort}/\u003e\n\n// Link  HTML方式\n\u003clink to=\"/mysort?id=12121212\"\u003exxx\u003c/Link\u003e\n\n// js文件中跳转\nthis.props.history.push({pathname:\"/mysort?id\" + id});\n\n// Mysort页面读取传递过来的参数（id = 12121212）:\nthis.props.location.search.id\n\n```","title":"React路由传参","summary":null,"tags":["React"],"categories":null,"date":"Mon, 30 Aug 2021 11:34:08 GMT","updated":"Sun, 09 Jul 2023 13:39:00 GMT","coverImg":null,"dateYMD":"2021-08-30","wordcount":"本文字数：150 字    阅读完需：约 1 分钟"}},"__N_SSG":true},"page":"/post/[id]","query":{"id":"article-25"},"buildId":"cuZce-tCUs9C6L25idFvY","isFallback":false,"gsp":true,"scriptLoader":[]}</script></div></body></html>
